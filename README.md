@@ -5,10 +5,10 @@
 default 
 ```shell
 status_bg_color="default" # statusbar background color
-color1="#16610E" # session & current pane background color
-color2="#F97A00" # session & current pane foreground color
+color1="#16610E" # session & current windows background color
+color2="#F97A00" # session & current windows foreground color
 color3="#FED16A" # username background color
-color4="#FFF4A4" # inactive pane background color
+color4="#FFF4A4" # inactive windows background color
 
 separator_start_icon=""
 separator_end_icon=""
