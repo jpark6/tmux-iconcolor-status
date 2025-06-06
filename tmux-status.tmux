@@ -81,7 +81,6 @@ main() {
   status_right
 
   tmux set -g pane-active-border-style "fg=$color1"
-  tmux set -g mouse on
 }
 
 main "$@"
