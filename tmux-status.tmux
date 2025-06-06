@@ -70,12 +70,12 @@ main() {
   # set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨" "󱑁 " "󰸗 " "󱁍 "
   # set_icons " " "" "󱠇" "󰙊 " " " "󱓞 " "󰚱 " "󰸗 " "󰒍 "
   # set_icons "" "" "" "" "" "" "" "" "" # use "" if don't want icon and seperator
-  # set_icons "" "" " " " " " " " " " " "󰸗 " " "
   # set_icons "" "" " " " " " " " " " " "󰸗 " " "
   # set_icons " " " " " " " " " " " " " " "󰸗 " " "
   set_color "default" "#11009E" "#4942E4" "#8696FE" "#C4B0FF" # cold - navy blue people
   # set_color default teal yellowgreen cyan yellow
-  set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " "󱁍 "
+  # set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " "󱁍 "
+  # set_icons "" "" " " " " " " " " " " "󰸗 " " "
   status_left
   status_center
   status_right
