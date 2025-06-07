@@ -7,10 +7,14 @@
 [Nerd Font github page](https://github.com/ryanoasis/nerd-fonts)
 Need to install the Nerd Font for the icons to display properly.
 
+this README.md page not support Nerd Font
+therfore below set_icons icon charecter just display box charector
+icon is :
+![./images/icon_characters.png](./images/icon_characters.png)
+
 ### plugins
 if want to see mem/cpu usage percent  
 install [thewtex/tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load)
-
 
 ## Install
 ### Tmux Plugin Manager (TPM)
@@ -63,52 +67,45 @@ main() {
 - separator : /
 - color: green orange yellow
 ```shell
-status_bg_color="default" # statusbar background color default: terminal background / light / dark
-color1="#16610E" # session & current windows background color
-color2="#F97A00" # session & current windows foreground color
-color3="#FED16A" # username background color
-color4="#FFF4A4" # inactive windows background color
+status_bg_color="default" # statusbar bg color default: terminal bg / light / dark
+color1="#16610E" # session & MEM CPU bg color
+color2="#F97A00" # username & date bg color
+color3="#FED16A" # pane & time bg color
+color4="#FFF4A4" # current window bg color
 
 separator_start_icon=""
 separator_end_icon=""
 session_icon=" "
 user_icon=" "
 pane_icon=" "
-status_current_icon=""
+status_current_icon=" "
 time_icon=" "
 date_icon="󰸗 "
-host_icon=" "
+mem_icon=" "
+cpu_icon=" "
 ```
 ![./images/default.png](./images/default.png)
 
-### Rounded Separators & Cyberpunk Color
+### Rounded Separators & Cyberpunk
 ```shell
   set_color "default" "#541690" "#FF4949" "#FF8D29" "#FFCD38" # cyberpunk - purple pink orange
   set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " "󰰐 " "󰯲 "
 ```
 ![./images/round-cyberpunk.png](./images/round-cyberpunk.png)
 
-### Wave Separators & Cold Color (status background light)
+### Wave Separators & Cold (status background light)
 ```shell
-  set_color "light" "#11009E" "#4942E4" "#8696FE" "#C4B0FF" # cold - navy blue people
+  set_color "light" "#11009E" "#8696FE" "#EEEEEE" "skyblue" # cold - blue lightpurple skyblue
   set_icons " " " " " " "󰙊 " "󰠡 " " " " " "󰸗 " " " " "
 ```
 ![./images/wave-cold.png](./images/wave-cold.png)
 
 ### Flame Separators & Red pearch Green
 ```shell
-  set_color default "#FF3F33" "#FFE6E1" "#075B5E" "#9FC87E" # red peach green 
+  set_color "default" "#A62C2C" "#E83F25" "#EA7300" "#D3CA79" # flame red orange yellow 
   set_icons " " "" "󱠇" "󰙊 " " " "󱓞 " "󰚱 " "󰸗 " " " " "
 ```
 ![./images/flame-red.png](./images/flame-red.png)
-
-### No Seraprators & No Icon and Olive Gray Color
-```shell
-  set_color "dark" "#626F47" "#A4B465" "#F5ECD5" "#F0BB78" # gray olive
-  set_icons "" "" "" "" "" "" "" "" " "MEM:" "CPU:" # use "" if don't want icon and seperator
-```
-
-![./images/noseparator-noicon.png](./images/noseparator-noicon.png)
 
 ### Triangle & Brown Yellow
 ```shell
@@ -124,4 +121,20 @@ host_icon=" "
   set_icons "" "" " " "󱚟 " "󰠡 " "󰣉 " "󱦟 " "󰸗 " "󰰐 " "󰯲 "
 ```
 ![/images/inversetriangle-neon.png](./images/inversetriangle-neon.png)
+
+### No Seraprator No Icon & Olive Gray Color
+```shell
+  set_color "dark" "#626F47" "#A4B465" "#F5ECD5" "#F0BB78" # gray olive
+  set_icons "" "" "" "" "" "" "" "" "MEM:" "CPU:" # use "" if don't want icon and seperator
+```
+
+![./images/noseparator-noicon-grayolive.png](./images/noseparator-noicon-grayolive.png)
+
+### No Seraprator No Icon & black gray
+```shell
+  set_color "dark" "black" "#888888" "white" "gray" # black
+  set_icons "" "" "" "" "" "" "" "" "MEM:" "CPU:" # use "" if don't want icon and seperator
+```
+
+![./images/noseparator-noicon-blackgray.png](./images/noseparator-noicon-blackgray.png)
 
