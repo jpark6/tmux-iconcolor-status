@@ -7,14 +7,14 @@
 [Nerd Font github page](https://github.com/ryanoasis/nerd-fonts)
 Need to install the Nerd Font for the icons to display properly.
 
-this README.md page not support Nerd Font
-therfore below set_icons icon charecter just display box charector
-icon is :
+This README.md page not support Nerd Font
+Therfore below codes `set_icons` icons just display box characters
+icon:
 ![./images/icon_characters.png](./images/icon_characters.png)
 
 ### plugins
-if want to see mem/cpu usage percent  
-install [thewtex/tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load)
+If want to see mem/cpu usage percent  
+Install [thewtex/tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load)
 
 ## Install
 ### Tmux Plugin Manager (TPM)
