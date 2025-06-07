@@ -34,6 +34,30 @@ run $HOME/.tmux/plugins/tmux-status/tmux-status.tmux
 ```
 
 ## Usage
+- change `tmux-status.tmux` and reload plugin
+1. change `tmux-status.tmux` main function
+```shell
+main() {
+  ...
+  # change below 2 lines
+  set_color "default" "#16610E" "#F97A00" "#FED16A" "#FFF4A4" # green orange
+  set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
+
+  status_left
+  status_center
+  status_right
+
+  tmux set -g pane-active-border-style "fg=$color1"
+}
+
+```
+2. reload `tmux-status.tmux` login
+  - Reload tmux
+    - press \<prefix\>+I (default: \<C-b\>+I)
+  - or run `tmux-status.tmux`
+    - press \<prefix>+: and type `:run /path/to/plugin/tmux-status.tmux`
+    - type command in shell: `tmux run /path/to/plugin/tmux-status.tmux`
+
 ### Default 
 - default color if don't set colors & icons
 - separator : /
