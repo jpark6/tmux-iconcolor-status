@@ -81,14 +81,14 @@ host_icon=" "
 ```
 ![./images/default.png](./images/default.png)
 
-### Rounded Separators & Cyberfunk Color
+### Rounded Separators & Cyberpunk Color
 ```shell
   set_color "default" "#541690" "#FF4949" "#FF8D29" "#FFCD38" # cyberpunk - purple pink orange
   set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " "󰰐 " "󰯲 "
 ```
 ![./images/round-cyberpunk.png](./images/round-cyberpunk.png)
 
-### Wave Separators & Cold Color (status baground light)
+### Wave Separators & Cold Color (status background light)
 ```shell
   set_color "light" "#11009E" "#4942E4" "#8696FE" "#C4B0FF" # cold - navy blue people
   set_icons " " " " " " "󰙊 " "󰠡 " " " " " "󰸗 " " " " "
@@ -111,7 +111,6 @@ host_icon=" "
 ![./images/noseparator-noicon.png](./images/noseparator-noicon.png)
 
 ### Triangle & Brown Yellow
-- Can Use ANSI Color
 ```shell
   set_color dark "#4B352A" "#CA7842" "#B2CD9C" "#F0F2BD"
   set_icons "" "" "󱃸 " " " "󱪳 " " " "󱎫 " "󰸘 " "M:" "C:"
