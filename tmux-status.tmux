@@ -67,8 +67,8 @@ status_right() {
 }
 
 main() {
-  color references : https://colorhunt.co/
-  set_color "default" "#16610E" "#F97A00" "#FED16A" "#FFF4A4" # green orange
+  # color references : https://colorhunt.co/
+  # set_color "default" "#16610E" "#F97A00" "#FED16A" "#FFF4A4" # green orange
   # set_color "dark" "#626F47" "#A4B465" "#F5ECD5" "#F0BB78" # gray olive
   # set_color "default" "#11009E" "#4942E4" "#8696FE" "#C4B0FF" # cold - navy blue purple
   # set_color "default" "#541690" "#FF4949" "#FF8D29" "#FFCD38" # cyberpunk - purple pink orange
@@ -83,7 +83,7 @@ main() {
   # set_color "default" "#A62C2C" "#E83F25" "#EA7300" "#D3CA79" # flame red orange yellow 
 
   # set_icons "" "" "" "" "" "" "" "" "" # use "" if don't want icon and seperator
-  set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
+  # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
   # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
   # set_icons "" "" "󱃸 " " " "󱪳 " " " "󱎫 " "󰸘 " "MEM:" "CPU:"
   # set_icons "" "" " " "󱚟 " "󰠡 " "󰣉 " "󱦟 " "󰸗 " "󰰐 " "󰯲 "
@@ -92,8 +92,8 @@ main() {
   # set_icons " " " " " " "󰙊 " "󰠡 " " " " " "󰸗 " " " " "
   # set_icons " " "" "󱠇" "󰙊 " " " "󱓞 " "󰚱 " "󰸗 " " " " "
 
-  # set_color default teal yellowgreen cyan yellow # Neon
-  # set_icons "" "" "󱃸 " " " "󱪳 " " " "󱎫 " "󰸘 " "MEM:" "CPU:"
+  set_color "default" "#16610E" "#F97A00" "#FED16A" "#FFF4A4" # green orange
+  set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
 
   status_left
   status_center
