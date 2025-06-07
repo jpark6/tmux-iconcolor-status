@@ -14,7 +14,8 @@ pane_icon=" "
 status_current_icon=" "
 time_icon=" "
 date_icon="󰸗 "
-host_icon=" "
+mem_icon=" "
+cpu_icon=" "
 
 set_color() {
   if [[ $1 = 'light' ]]; then
@@ -39,7 +40,8 @@ set_icons() {
   status_current_icon="$6"
   time_icon="$7"
   date_icon="$8"
-  host_icon="$9"
+  mem_icon="$9"
+  cpu_icon="${10}"
 }
 
 status_left() {
@@ -57,7 +59,7 @@ status_center() {
 }
 
 status_right() {
-  tmux set -g status-right "#[fg=$color3,bg=$status_bg_color]$separator_start_icon#[fg=$color1,bg=$color3] $time_icon%H:%M:%S #[fg=$color3,bg=$color2]$separator_end_icon#[fg=$color1,bg=$color2] $date_icon%Y/%m/%d #[fg=$color2,bg=$color1]$separator_end_icon $host_icon#H"
+  tmux set -g status-right "#[fg=$color3,bg=$status_bg_color]$separator_start_icon#[fg=$color1,bg=$color3] $time_icon%H:%M:%S #[fg=$color3,bg=$color2]$separator_end_icon#[fg=$color1,bg=$color2] $date_icon%Y/%m/%d #[fg=$color2,bg=$color1]$separator_end_icon $mem_icon #(tmux-mem-cpu-load -m 2 -g 0 -a 0 -i 1 | sed 's|  | $cpu_icon |g') #[default]"
   tmux set -g status-right-length 200
   tmux set -g status-interval 1
 }
@@ -69,17 +71,20 @@ main() {
   # set_color "default" "#11009E" "#4942E4" "#8696FE" "#C4B0FF" # cold - navy blue people
   # set_color "default" "#541690" "#FF4949" "#FF8D29" "#FFCD38" # cyberpunk - purple pink orange
   # set_color "light" "#11009E" "#4942E4" "#8696FE" "#C4B0FF" # cold - navy blue people
-  # set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨" "󱑁 " "󰸗 " "󱁍 "
-  # set_icons " " "" "󱠇" "󰙊 " " " "󱓞 " "󰚱 " "󰸗 " "󰒍 "
-  # set_icons "" "" "" "" "" "" "" "" "" # use "" if don't want icon and seperator
-  # set_icons "" "" " " " " " " " " " " "󰸗 " " "
-  # set_icons " " " " " " " " " " " " " " "󰸗 " " "
   # set_color default teal yellowgreen cyan yellow
-  # set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " "󱁍 "
-  # set_icons "" "" " " " " " " " " " " "󰸗 " " "
-  # set_icons " " " " " " " " " " " " " " "󰸗 " " "
 
+  # set_icons "" "" "" "" "" "" "" "" "" # use "" if don't want icon and seperator
+  # set_icons " " "" "󱠇" "󰙊 " " " "󱓞 " "󰚱 " "󰸗 " " " " "
+  # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
+  # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
+  # set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " " " " "
+  # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
+  # set_icons " " " " " " " " " " " " " " "󰸗 " " " " "
+  # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
+  # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
 
+  set_color default "#FF3F33" "#FFE6E1" "#075B5E" "#9FC87E" # red peach green 
+  set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
 
   status_left
   status_center
