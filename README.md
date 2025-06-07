@@ -51,7 +51,7 @@ main() {
 }
 
 ```
-2. reload `tmux-status.tmux` login
+2. reload `tmux-status.tmux` plugin
   - Reload tmux
     - press \<prefix\>+I (default: \<C-b\>+I)
   - or run `tmux-status.tmux`
