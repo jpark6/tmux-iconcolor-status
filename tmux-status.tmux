@@ -72,19 +72,20 @@ main() {
   # set_color "default" "#541690" "#FF4949" "#FF8D29" "#FFCD38" # cyberpunk - purple pink orange
   # set_color "light" "#11009E" "#4942E4" "#8696FE" "#C4B0FF" # cold - navy blue people
   # set_color default teal yellowgreen cyan yellow
+  # set_color default "#FF3F33" "#FFE6E1" "#075B5E" "#9FC87E" # red peach green 
 
   # set_icons "" "" "" "" "" "" "" "" "" # use "" if don't want icon and seperator
-  # set_icons " " "" "󱠇" "󰙊 " " " "󱓞 " "󰚱 " "󰸗 " " " " "
+  # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
   # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
   # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
-  # set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " " " " "
-  # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
-  # set_icons " " " " " " " " " " " " " " "󰸗 " " " " "
   # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
   # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
+  # set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " " " " "
+  # set_icons " " " " " " " " " " " " " " "󰸗 " " " " "
+  # set_icons " " "" "󱠇" "󰙊 " " " "󱓞 " "󰚱 " "󰸗 " " " " "
 
-  set_color default "#FF3F33" "#FFE6E1" "#075B5E" "#9FC87E" # red peach green 
-  set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
+  set_color "dark" "#16610E" "#F97A00" "#FED16A" "#FFF4A4" # green orange
+  set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
 
   status_left
   status_center

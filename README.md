@@ -2,6 +2,7 @@
 
 `jpark6/tmux-status` is simple tmux status plugin
 
+
 default 
 ```shell
 status_bg_color="default" # statusbar background color
@@ -25,32 +26,35 @@ host_icon=" "
 if want to change colors & icons & separators
 change `tmux-status.tmux` file's main function code
 
-
 ## examples
-change 1
-- rounded separators & cyberfunk color
+rounded separators & cyberfunk color
 ```shell
   set_color "default" "#541690" "#FF4949" "#FF8D29" "#FFCD38" # cyberpunk - purple pink orange
   set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " "󱁍 "
 ```
-![./images/change1.png](./images/change1.png)
+![./images/round-cyberpunk.png](./images/round-cyberpunk.png)
 
-change 2
-- wave separators & cold color
+wave separators & cold color
 ```shell
   set_color "light" "#11009E" "#4942E4" "#8696FE" "#C4B0FF" # cold - navy blue people
   set_icons " " " " " " " " " " " " " " "󰸗 " " "
 ```
-![./images/change2.png](./images/change2.png)
+![./images/wave-cold.png](./images/wave-cold.png)
 
-change 3
-- No seraprators a& No icon and olive gray color
+flame separators & red pearch green
+```shell
+  set_color default "#FF3F33" "#FFE6E1" "#075B5E" "#9FC87E" # red peach green 
+  set_icons " " "" "󱠇" "󰙊 " " " "󱓞 " "󰚱 " "󰸗 " " " " "
+```
+![./images/flame-red.png](./images/flame-red.png)
+
+No seraprators & No icon and olive gray color
 ```shell
   set_color "dark" "#626F47" "#A4B465" "#F5ECD5" "#F0BB78" # gray olive
   set_icons "" "" "" "" "" "" "" "" "" # use "" if don't want icon and seperator
 ```
 
-![./images/change3.png](./images/change3.png)
+![./images/noseparator-noicon.png](./images/noseparator-noicon.png)
 
 ## install
 ### Tmux Plugin Manager (TPM)
@@ -72,5 +76,10 @@ add to  `.tmux.conf` file:
 ```shell
 run $HOME/.tmux/plugins/tmux-status/tmux-status.tmux
 ```
+
+## plugins
+if want to see mem/cpu usage percent  
+install [thewtex/tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load)
+
 
 
