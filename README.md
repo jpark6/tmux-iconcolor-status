@@ -95,7 +95,7 @@ cpu_icon=" "
 
 ### Wave Separators & Cold (status background light)
 ```shell
-  set_color "light" "#11009E" "#8696FE" "#EEEEEE" "skyblue" # cold - blue lightpurple skyblue
+  set_color "light" "#11009E" "#8696FE" "#CCCCCC" "skyblue" # cold - blue lightpurple skyblue
   set_icons " " " " " " "󰙊 " "󰠡 " " " " " "󰸗 " " " " "
 ```
 ![./images/wave-cold.png](./images/wave-cold.png)

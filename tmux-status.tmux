@@ -18,9 +18,9 @@ mem_icon=" "
 cpu_icon=" "
 
 set_color() {
-  if [[ $1 = 'light' ]]; then
+  if [[ $1 = 'light' || $1 = 'white' ]]; then
     status_bg_color="white"
-  elif [[ $1 = 'dark' ]]; then
+  elif [[ $1 = 'dark' || $1 = 'black' ]]; then
     status_bg_color="black"
   else
     status_bg_color="default"
@@ -47,7 +47,7 @@ set_icons() {
 }
 
 status_left() {
-  tmux set -g status-left "#[fg=$color2,bg=$color1] $session_icon#S #[fg=$color1,bg=$color2]$separator_end_icon $user_icon#(whoami) #[fg=$color2,bg=$color3]$separator_end_icon#[fg=$color1,bg=$color3] $pane_icon#{window_index}:#{pane_index} #[fg=$color3,bg=$status_bg_color]$separator_end_icon"
+  tmux set -g status-left "#[fg=$color2,bg=$color1] $session_icon#S #[fg=$color1,bg=$color2]$separator_end_icon #[bold,italic]$user_icon#(whoami) #[default]#[fg=$color2,bg=$color3]$separator_end_icon#[fg=$color1,bg=$color3] $pane_icon#{window_index}:#{pane_index} #[fg=$color3,bg=$status_bg_color]$separator_end_icon"
   tmux set -g status-left-length 200
 }
 
@@ -56,12 +56,12 @@ status_center() {
 
   tmux set -g status-justify centre
   tmux set -g window-status-format "#[fg=$color2,bg=$status_bg_color]$separator_start_icon#[fg=$color3,bg=$color2] #I:#W #[fg=$color2,bg=$status_bg_color]$separator_end_icon"
-  tmux set -g window-status-current-format "#[fg=$color4,bg=$status_bg_color]$separator_start_icon#[fg=$color1,bg=$color4,bold] $status_current_icon #I:#W #[default]#[fg=$color4,bg=$status_bg_color]$separator_end_icon"
+  tmux set -g window-status-current-format "#[fg=$color4,bg=$status_bg_color]$separator_start_icon#[fg=$color1,bg=$color4,bold] $status_current_icon#I:#W #[default]#[fg=$color4,bg=$status_bg_color]$separator_end_icon"
   tmux set -g window-status-separator " "
 }
 
 status_right() {
-  tmux set -g status-right "#[fg=$color3,bg=$status_bg_color]$separator_start_icon#[fg=$color1,bg=$color3] $time_icon%H:%M:%S #[fg=$color2,bg=$color3]$separator_start_icon#[fg=$color1,bg=$color2] $date_icon%Y/%m/%d #[fg=$color1,bg=$color2]$separator_start_icon#[fg=$color2,bg=$color1] $mem_icon #(tmux-mem-cpu-load -m 2 -g 0 -a 0 -i 1 | sed 's|  | $cpu_icon |g') #[default]"
+  tmux set -g status-right "#[fg=$color3,bg=$status_bg_color]$separator_start_icon#[fg=$color1,bg=$color3] $time_icon%H:%M:%S #[fg=$color2,bg=$color3]$separator_start_icon#[fg=$color1,bg=$color2] $date_icon%y/%m/%d #[fg=$color1,bg=$color2]$separator_start_icon#[fg=$color2,bg=$color1] $mem_icon #(tmux-mem-cpu-load -m 2 -g 0 -a 0 -i 1 | sed 's|  | $cpu_icon |g') #[default]"
   tmux set -g status-right-length 200
   tmux set -g status-interval 1
 }
@@ -90,10 +90,11 @@ main() {
   # set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
   # set_icons "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " "󰰐 " "󰯲 "
   # set_icons " " " " " " "󰙊 " "󰠡 " " " " " "󰸗 " " " " "
-  # set_icons " " "" "󱠇" "󰙊 " " " "󱓞 " "󰚱 " "󰸗 " " " " "
+  # set_icons " " "" "󱠇 " "󰙊 " " " "󱓞 " "󰚱 " "󰸗 " " " " "
+  # set_icons " " " " " " "󰙄 " "󰠡 " "󰣉 " "󱦟 " "󰸗 " "" ""
 
   set_color "default" "#16610E" "#F97A00" "#FED16A" "#FFF4A4" # green orange
-  set_icons "" "" " " " " " " " " " " "󰸗 " " " " "
+  set_icons "" "" " " " " " " " " " " "󰸗 " "" ""
 
   status_left
   status_center
