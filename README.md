@@ -97,7 +97,7 @@ cpu_icon=" "
 ### Triangle Separators & Nord Color 
 ```shell
   set_color "deafult" "#88C0D0" "#2E3440" "#FFFFFF" # Nord
-  set_icons "" "" "  " "  " "󱃸 " " " "󱪳 " " " "󱎫 " "󰸘 " "MEM:" "CPU:"
+  set_icons "" "" "  " "  " "󱃸 " " " "󱪳 " " " "󱎫 " "󰸘 " " " " "
 ```
 ![./images/triangle-nord.png](./images/triangle-nord.png)
 
