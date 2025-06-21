@@ -95,7 +95,7 @@ main() {
   # set_color "default" "#FD8A8A" "#F1F7B5" "#A8D1D1" # PastelPink - pink yellow blue
   # set_color "default" "#00809D" "#FCECDD" "#FF7601" # PastelCyan - cyan white orange
   # set_color "default" "#FF3F33" "#FFE6E1" "#075B5E" # PastelPeach red peach green 
-  set_color "light"   "#005DFA" "#8CB2F1" "#D0CEDD" # Cold - blue skyblue white
+  # set_color "light"   "#005DFA" "#8CB2F1" "#D0CEDD" # Cold - blue skyblue white
 
   # set_icons "" "" "" "" "" "" "" " " "" "" "" "" "" # no icon and seperator
   # set_icons "" "" "" "" "󰒋 " "󱟄" " " "  " "󰄬 " "󱦟 " "󰸗 " " " " "
@@ -125,7 +125,7 @@ main() {
   # set_icons " " "" " " " " "󱠇 " "󰙊 " " " "󱓞 " " " "󱦟 " "󰸗 " " " " "
   # set_icons " " " " "｜" "｜" "󰕲 " "󰙄 " " " "󰣉 " " " "󱦟 " "󰸗 " "" ""
 
-  # set_color "default" "#16610E" "#F97A00" "#FED16A" # Forest - green orange yellow
+  set_color "default" "#16610E" "#F97A00" "#FED16A" # Forest - green orange yellow
   set_icons "" "" " " " " " " " " " " " " " " " " "󰸗 " " " " "
 
   status_left
