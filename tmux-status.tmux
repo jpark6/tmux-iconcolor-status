@@ -12,8 +12,8 @@ sp_r_icon=""
 session_icon=" "
 user_icon=" "
 pane_icon=" "
-curr_icon=" "
-prev_icon=" "
+curr_icon=" "
+prev_icon=" "
 time_icon=" "
 date_icon="󰸗 "
 mem_icon=" "
@@ -53,7 +53,7 @@ set_icons() {
 
 status_left() {
   # session / user / pane /
-  tmux set -g status-left "#[fg=$c2,bg=$c1] $session_icon#S #[fg=$c1,bg=$c2]$section_r_icon#[fg=$c1,bg=$c2] $user_icon#[bold,italics]#(whoami) #[default]#[fg=$c2,bg=$c3]$section_r_icon#[fg=$c1,bg=$c3] $pane_icon#{window_index}:#{pane_index} #[fg=$c3,bg=$bg_c]$section_r_icon"
+  tmux set -g status-left "#[fg=$c2,bg=$c1] $session_icon#S #[fg=$c1,bg=$c2]$section_r_icon#[fg=$c1,bg=$c2] $user_icon#[bold,italics]#(whoami) #[default]#[fg=$c2,bg=$c3]$section_r_icon#[fg=$c1,bg=$c3] $pane_icon#{window_index}:#{pane_index} #[fg=$c3,bg=$bg_c]$section_r_icon "
   # session / pane /
   # tmux set -g status-left "#[fg=$c2,bg=$c1] $session_icon#S #[fg=$c1,bg=$c2]$section_r_icon $pane_icon#{window_index}:#{pane_index} #[fg=$c2,bg=$bg_c]$section_r_icon"
   tmux set -g status-left-length 200
@@ -63,7 +63,7 @@ status_center() {
   tmux set -g status-style "fg=$c1,bg=$bg_c"
 
   tmux set -g status-justify left # centre left right
-  tmux set -g window-status-format "#[fg=$c2,bg=$bg_c] #(printf "%%s" #F | sed 's|-|$prev_icon|')#I #W "
+  tmux set -g window-status-format "#[fg=$c1,bg=$bg_c] #(printf "%%s" #F | sed 's|-|$prev_icon|')#I #W "
   tmux set -g window-status-current-format "#[fg=$c1,bg=$bg_c]$section_l_icon#[fg=$c2,bg=$c1,bold] $curr_icon#[italics]#I $sp_r_icon#W #[default]#[fg=$c1,bg=$bg_c]$section_r_icon"
   tmux set -g window-status-separator " "
 }
@@ -80,15 +80,18 @@ main() {
   # set_color "dark"    "#626F47" "#A4B465" "#F5ECD5" # OliveGray - olive gray white
   # set_color "default" "#541690" "#FF4949" "#FFCD38" # Cyberpunk - purple pink orange
   # set_color "default" "#050C9C" "#3572EF" "#3ABEF9" # Ocean - blue lightpurple skyblue
-  # set_color "default" "#FCC737" "#F26B0F" "#7E1891" # NeonYellow - yellow orange purple
+  # set_color "default" "#FCC737" "#F27B0F" "#7E1891" # NeonYellow - yellow orange purple
   # set_color "default" "#952F7C" "#45CC38" "#CAAC00" # NeonPurple
   # set_color "default" "#EFE4D2" "#254D70" "#2F80BF" # WhiteGreen - white green blue
   # set_color "default" "#96624C" "#CC8A6A" "#FABB85" # Coffee
-  # set_color "default" "#139E74" "#E2FFF4" "#BAFFE5" # Mint
+  # set_color "default" "#139E74" "#BAFFE5" "#E2FFF4" # Mint
   # set_color "default" "#A62C2C" "#E83F25" "#EA7300" # Flame - red orange yellow 
   # set_color "default" "#88C0D0" "#2E3440" "#FFFFFF" # Nord - skyblue darkgray white
   # set_color "default" "#0A0047" "#00FFD2" "#FF4499" # TokyoNight - darkblue teal pink
   # set_color "default" "#1A5319" "#80AF81" "#D6EFD8" # GradientGreen - gree dark → light
+  # set_color "default" "#AA60C8" "#D69ADE" "#FFDFEF" # GradientPurple
+  # set_color "default" "#3D90D7" "#7AC6D2" "#B5FCCD" # GradientBlue
+  # set_color "default" "#FA812F" "#F3C623" "#FEF3E2" # GradientOrange - orange dark → light
   # set_color "default" "cyan" "yellow" "white"  # PastelGreen cyan yellowgreen white
   # set_color "dark"    "#4B352A" "#CA7842" "#B2CD9C" # PastelBrown -  brown yellow
   # set_color "default" "#B1AFFF" "#FDFDBD" "#C8FFD4" # PastelPurple - purple ivory skyblue
@@ -100,20 +103,20 @@ main() {
   # set_icons "" "" "" "" "" "" "" " " "" "" "" "" "" # no icon and seperator
   # set_icons "" "" "" "" "󰒋 " "󱟄" " " "  " "󰄬 " "󱦟 " "󰸗 " " " " "
   # set_icons "" "" "" "" "󰒋 " "󱟄" " " "  " " " "󱦟 " "󰸗 " " " " "
-  # set_icons "" "" "" "" " " "" " " " 󰣉 " "󰆤" "󱎫 " "󰸘 " " " " "  # icon / no sep
-  # set_icons "" "" "" "" "󰹕 " "󰶪 " "󰃥 " " 󰙏 " "󰸕 " "󱫍 " " " "" ""  # study
-  # set_icons "" "" "" "" "󰠴 " "󰑮 " "󱉾  " "  " "󰦶 " "󰔛 " " " "" ""  # sport
+  # set_icons "" "" "" "" " " "" " "󰙄 " 󰣉 " "󰆤" "󱎫 " "󰸘 " " " " "  # icon / no sep
+  # set_icons "" "" "｜" "｜" "󰹕 " "󰶪 " "󰃥 " " 󰙏 " "󰸕 " "󱫍 " " " "i" ""  # study
+  # set_icons "" "" "" "" "󰠴 " "󰑮 " "󱉾  " "  " "󰦶 " "󰔛 " " " " " ""  # sport
   # set_icons "" "" "" "" "🖥 " "🤖 " "🪟 " "🎯" "✨" "⏳️" "📅" " " "" 
   # set_icons "" "" "" "" "🧱" "👷" "🪟 " "🏗 " "🚧" "⏳️" "📅" " " "" 
   # set_icons "" "" "" "" "🌃" "😪" "🪟 " "🌙" "💤" "⏳️" "📅" " " "" 
   # set_icons "" "" " " " " "🎹" "🕺" "🥁" "🎸" "🎶" "🕰 " "📆" "󰰐 " "󰯲 "
   # set_icons "" "" " " " " "🏟 " "🏊" "🏓" "⚽ " "🥅" "⏳️" "📆" "󰰐 " "󰯲 "
-  # set_icons "" "" "" "" "🏔 " "" "🚠 " "🏂 " "🍧" "⌚️" "🎄" "󰰐 " "󰯲 "
+  # set_icons "" "" "" "" "🏔 " "⛄" "🚠 " "🏂 " "🍧" "⌚️" "🎄" "󰰐 " "󰯲 "
   # set_icons "" "" " " " " " " " " " " " " " " " " "󰸗 " " " " "
   # set_icons "" "" " " " " " " " " " " "󰎇 " "󰽺 " " " "󰸗 " " " " "
   # set_icons "" "" " " " " "󰒋 " "󰙌" " " " " " " " " "󰸗 " " " " "
   # set_icons "" "" " " " " " " " " " " "󱝂 " " " " " "󰸗 " " " " "
-  # set_icons "" "" " " " " "󱃸 " " " "󱪳 " "󰠳 " " " "󱎫 " "󰸘 " "MEM:" "CPU:"
+  # set_icons "" "" " " " " "󰒋 " " " "󱪳 " "󰠳 " " " "󱎫 " "󰸘 " "MEM:" "CPU:"
   # set_icons "" "" " " " " "󱃸 " " " "󱪳 " "󰠳 " " " "󱎫 " "󰸘 " "M:" "C:"
   # set_icons "" "" " " " " " " "󱗌 " "󰕮 " "󰖙 " " " "󱎫 " "󰸘 " "󰰐 " "󰯲 "
   # set_icons "" "" " " " " "  " "󰙄 " "󱪳 " " " " " "󱎫 " "󰸘 " "󰰐 " "󰯲 "
