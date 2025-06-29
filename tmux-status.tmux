@@ -95,22 +95,7 @@ set_status_right() {
   tmux set -g status-interval 1
 }
 
-main() {
-  global_colors=$(tmux show -gqv @tmux-status-colors 2>/dev/null)
-  if [ -n "$global_colors" ]; then 
-    set_colors $global_colors
-  fi
-
-  global_separators=$(tmux show -gqv @tmux-status-separators 2>/dev/null)
-  if [ -n "$global_separators" ]; then 
-    set_separators $global_separators
-  fi
-
-  global_icons=$(tmux show -gqv @tmux-status-icons 2>/dev/null)
-  if [ -n "$global_icons" ]; then 
-    set_icons "$global_icons"
-  fi
-
+set_preset() {
   # Examples of colors / separators / icons
   # color references : https://colorhunt.co/
   # set -g @tmux-status-colors "," # no colors - bg: transparent fg : theme main color
@@ -159,12 +144,12 @@ main() {
 
   # set -g @tmux-status-icons "," # no icons
   # set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ," # target emoji
-  # set -g @tmux-status-icons " , ,󰙄 ,󰣉 ,󰆤,󱎫 ,󰸘 , , ,"  # target
-  # set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, ,,," # under construction emoji
+  # set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, ,,," # construction emoji
   # set -g @tmux-status-icons "🌃,😪,🪟 ,🌙,💤,⏳️,📅, ,,,"  # night emoji
   # set -g @tmux-status-icons "🎹,🕺,🥁,🎸,🎶,🕰 ,📆,󰰐 ,󰯲 ,"  # music emoji
   # set -g @tmux-status-icons "🏟 ,🏊,🏓,⚽ ,🥅,⏳️,📆,󰰐 ,󰯲 ," # sport emoji
   # set -g @tmux-status-icons "🏔 ,⛄,🚠 ,🏂 ,🍧,⌚️,🎄,󰰐 ,󰯲 ," # winter emoji
+  # set -g @tmux-status-icons " , ,󰙄 ,󰣉 ,󰆤,󱎫 ,󰸘 , , ,"  # target
   # set -g @tmux-status-icons "󰒋 ,󱟄, ,  ,󰄬 ,󱦟 ,󰸗 , , ," # ship
   # set -g @tmux-status-icons "󰒋 ,󱟄, ,  , ,󱦟 ,󰸗 , , ," # play
   # set -g @tmux-status-icons "󰹕 ,󰶪 ,󰃥 , 󰙏 ,󰸕 ,󱫍 , ,i, ,"  # study
@@ -184,6 +169,29 @@ main() {
   # set -g @tmux-status-icons "󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 ,󰄉 ,󰸗 , , ," # wave
   # set -g @tmux-status-icons "󱠇 ,󰙊 , ,󱓞 , ,󱦟 ,󰸗 , , ," # hello
   # set -g @tmux-status-icons "󰕲 ,󰙄 , ,󰣉 , ,󱦟 ,󰸗 , , ," # target
+
+  tmux set -g @tmux-status-colors "default,#5EABD6,#FEFBC7,#FFB4B4" # PastlCyan2 - more bright
+  tmux set -g @tmux-status-separators " , ,,," # pixel
+  tmux set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ," # target emoji
+}
+main() {
+  # options in set_preset have higher priority than options in this .tmux.conf
+  # set_preset
+
+  global_colors=$(tmux show -gqv @tmux-status-colors 2>/dev/null)
+  if [ -n "$global_colors" ]; then 
+    set_colors $global_colors
+  fi
+
+  global_separators=$(tmux show -gqv @tmux-status-separators 2>/dev/null)
+  if [ -n "$global_separators" ]; then 
+    set_separators $global_separators
+  fi
+
+  global_icons=$(tmux show -gqv @tmux-status-icons 2>/dev/null)
+  if [ -n "$global_icons" ]; then 
+    set_icons "$global_icons"
+  fi
   
   set_status_left
   set_status_center

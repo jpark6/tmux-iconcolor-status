@@ -18,27 +18,29 @@ Install [thewtex/tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load
 ## Install
 ### Tmux Plugin Manager (TPM)
 
-add in `~/.tmux.conf`
+- add in `~/.tmux.conf`
 ```shell
 set -g @plugin 'jpark6/tmux-status'
 ```
 
 ### Manual
-Clone this repository in your `$HOME/.tmux/` directory:
+- Clone this repository in your `$HOME/.tmux/` directory:
 
-```shell
-git clone https://github.com/jpark6/tmux-status.git $HOME/.tmux/plugins/tmux-status
-```
+  ```shell
+  git clone https://github.com/jpark6/tmux-status.git $HOME/.tmux/plugins/tmux-status
+  ```
 
 add to  `.tmux.conf` file:
 
-```shell
-run $HOME/.tmux/plugins/tmux-status/tmux-status.tmux
-```
-Install tmux plugin
-```shell
-<prefix>+I # default tmux <prefix> is Ctrl+b
-```
+  ```shell
+  run $HOME/.tmux/plugins/tmux-status/tmux-status.tmux
+  ```
+
+### Install Plugin
+- For both TPM and Manual methods, you must enter the install command.
+  ```shell
+  <prefix>+I # default tmux <prefix> is Ctrl+b
+  ```
 
 ## Usage
 - change `~/.tmux.conf`  and reload plugin
@@ -89,6 +91,13 @@ set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ,"
 ```
 ![./images/triangle-nord.png](./images/triangle-nord.png)
 
+### Pixel Separators & Pastel & Construction emoji icons
+```shell
+set -g @tmux-status-colors "default,#5EABD6,#FEFBC7,#FFB4B4" # PastlCyan2 - more bright
+set -g @tmux-status-separators " , ,,," # pixel
+set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, ,,," # construction emoji
+```
+![./images/pixel-pastel.png](./images/pixel-pastel.png)
 
 ### Wave Separators & Cold
 ```shell
@@ -98,7 +107,7 @@ set -g @tmux-status-icons "󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 ,󰄉 ,󰸗 , , ,"
 ```
 ![./images/wave-cold.png](./images/wave-cold.png)
 
-#### Flame Separators & Red pearch Green
+#### Flame Separators & Red
 ```shell
 set -g @tmux-status-colors "default,#A62C2C,#E83F25,#EA7300"
 set -g @tmux-status-separators " ,, , ,"
@@ -106,7 +115,7 @@ set -g @tmux-status-icons "󱠇 ,󰙊 , ,󱓞 , ,󱦟 ,󰸗 , , ,"
 ```
 ![./images/flame-red.png](./images/flame-red.png)
 
-#### No Separator No Icon & Olive Gray Color
+#### No Separator No Icon & Olive 
 ```shell
 set -g @tmux-status-colors "default,#627F47,#A4B465,#F5ECD5"
 set -g @tmux-status-separators ", "
@@ -204,16 +213,16 @@ set -g @tmux-status-show-mem-cpu "on" # on or "on"
 
   set -g @tmux-status-icons "," # no icons
   set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ," # target emoji
-  set -g @tmux-status-icons " , ,󰙄 ,󰣉 ,󰆤,󱎫 ,󰸘 , , ,"  # target
-  set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, ,,," # under construction emoji
+  set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, ,,," # construction emoji
   set -g @tmux-status-icons "🌃,😪,🪟 ,🌙,💤,⏳️,📅, ,,,"  # night emoji
   set -g @tmux-status-icons "🎹,🕺,🥁,🎸,🎶,🕰 ,📆,󰰐 ,󰯲 ,"  # music emoji
   set -g @tmux-status-icons "🏟 ,🏊,🏓,⚽ ,🥅,⏳️,📆,󰰐 ,󰯲 ," # sport emoji
   set -g @tmux-status-icons "🏔 ,⛄,🚠 ,🏂 ,🍧,⌚️,🎄,󰰐 ,󰯲 ," # winter emoji
+  set -g @tmux-status-icons " , ,󰙄 ,󰣉 ,󰆤,󱎫 ,󰸘 , , ,"  # target
   set -g @tmux-status-icons "󰒋 ,󱟄, ,  ,󰄬 ,󱦟 ,󰸗 , , ," # ship
-  set -g @tmux-status-icons "󰒋 ,󱟄, ,  , ,󱦟 ,󰸗 , , ," # play
+  set -g @tmux-status-icons "󰒋 ,󱟄, ,  , ,󱦟 ,󰸗 , , ," # paper plane 
   set -g @tmux-status-icons "󰹕 ,󰶪 ,󰃥 , 󰙏 ,󰸕 ,󱫍 , ,i, ,"  # study
-  set -g @tmux-status-icons "󰠴 ,󰑮 ,󱉾  ,  ,󰦶 ,󰔛 , , , ,"  # sport
+  set -g @tmux-status-icons "󰠴 ,󰑮 ,󱉾 ,  ,󰦶 ,󰔛 , , , ,"  # sport
   set -g @tmux-status-icons " , , , , , ,󰸗 , , ," # curved arrow
   set -g @tmux-status-icons " , , ,󰎇 ,󰽺 , ,󰸗 , , ," # music
   set -g @tmux-status-icons "󰒋 ,󰙌, , , , ,󰸗 , , ," # biohazard
