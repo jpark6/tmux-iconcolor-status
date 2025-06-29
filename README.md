@@ -199,13 +199,13 @@ set -g @tmux-status-show-mem-cpu "on" # on or "on"
   set -g @tmux-status-separators ",, , ," # triangle inverse > <
   set -g @tmux-status-separators ",, , ," # trapezoid like > <
   set -g @tmux-status-separators " ,,｜,｜," # wave
-  set -g @tmux-status-separators " ,, , ," # flare
+  set -g @tmux-status-separators " ,, , ," # flame
   set -g @tmux-status-separators " , ,｜,｜," # pixel
 
   set -g @tmux-status-icons "," # no icons
   set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ," # target emoji
   set -g @tmux-status-icons " , ,󰙄 ,󰣉 ,󰆤,󱎫 ,󰸘 , , ,"  # target
-  set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, ,,," # unser construction emoji
+  set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, ,,," # under construction emoji
   set -g @tmux-status-icons "🌃,😪,🪟 ,🌙,💤,⏳️,📅, ,,,"  # night emoji
   set -g @tmux-status-icons "🎹,🕺,🥁,🎸,🎶,🕰 ,📆,󰰐 ,󰯲 ,"  # music emoji
   set -g @tmux-status-icons "🏟 ,🏊,🏓,⚽ ,🥅,⏳️,📆,󰰐 ,󰯲 ," # sport emoji
