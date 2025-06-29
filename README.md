@@ -51,7 +51,7 @@ add to  `.tmux.conf` file:
 set -g @tmux-status-colors "default,#FD8A8A,#F1F7B5,#A8D1D1" 
 set -g @tmux-status-separators ",,｜,｜," 
 set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅,M:,C:"
-set -g @tmux-status-show-user-name off
+set -g @tmux-status-show-user-name on
 set -g @tmux-status-show-mem-cpu off
 ```
 - example options screenshot
