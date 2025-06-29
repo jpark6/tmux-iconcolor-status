@@ -176,7 +176,7 @@ set_preset() {
 }
 main() {
   # options in set_preset have higher priority than options in ~/.tmux.conf
-  set_preset
+  # set_preset
 
   global_colors=$(tmux show -gqv @tmux-status-colors 2>/dev/null)
   if [ -n "$global_colors" ]; then 
