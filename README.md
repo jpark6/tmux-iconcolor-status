@@ -73,7 +73,7 @@ set -g @tmux-status-show-cpu-mem off
   - user name : on
   - cpu mem : off
 
-![./images/default.png](./images/default.png)
+![./images/no-mem-cpu.png](./images/no-mem-cpu.png)
 
 ### Rounded Separators & Cyberpunk & round icons
 ```shell
