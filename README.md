@@ -57,16 +57,15 @@ set -g @tmux-status-show-mem-cpu off
 
 2. reload `tmux-status.tmux` plugin
   - Reload tmux
-    - press \<prefix\>+I (default: \<C-b\>+I)
-  - or run `tmux-status.tmux`
-    - press \<prefix>+: and type `:run /path/to/plugin/tmux-status.tmux`
-    - type command in shell: `tmux run /path/to/plugin/tmux-status.tmux`
+  ```shell
+  <prefix>+I # default tmux <prefix> is Ctrl+b
+  ```
 
 ### Colors & Separators & Icons
 #### Default
 - if not set options in `~/.tmux.conf`
 - applied default options 
-  - separator :  # right upper triangle
+  - separator : `` # right upper triangle
   - color: green orange yellow
   - icon: normal icons
   - user name : on
