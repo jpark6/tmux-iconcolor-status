@@ -142,50 +142,48 @@ main() {
   # set -g @tmux-status-separators "," # no saparators
   # set -g @tmux-status-separators ",,｜,｜,"
   # set -g @tmux-status-separators ",,,,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",,,,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators ",, , ,"
-  # set -g @tmux-status-separators " ,,｜,｜,"
-  # set -g @tmux-status-separators " ,, , ,"
-  # set -g @tmux-status-separators " , ,｜,｜,"
+  # set -g @tmux-status-separators ",, , ," # round
+  # set -g @tmux-status-separators ",,,,"     # round 
+  # set -g @tmux-status-separators ",, , ," # slant right / /
+  # set -g @tmux-status-separators ",, , ," # slant left \ \
+  # set -g @tmux-status-separators ",, , ," # slant down / \
+  # set -g @tmux-status-separators ",, , ," # slant up \ /
+  # set -g @tmux-status-separators ",, , ," # triangle both < >
+  # set -g @tmux-status-separators ",, , ," # triangle left < <
+  # set -g @tmux-status-separators ",, , ," # triangle right > >
+  # set -g @tmux-status-separators ",, , ," # triangle inverse > <
+  # set -g @tmux-status-separators ",, , ," # trapezoid like > <
+  # set -g @tmux-status-separators " ,,｜,｜," # wave
+  # set -g @tmux-status-separators " ,, , ," # flare
+  # set -g @tmux-status-separators " , ,｜,｜," # pixel
 
   # set -g @tmux-status-icons "," # no icons
-  # set -g @tmux-status-icons "󰒋 ,󱟄, ,  ,󰄬 ,󱦟 ,󰸗 , , ,"
-  # set -g @tmux-status-icons "󰒋 ,󱟄, ,  , ,󱦟 ,󰸗 , , ,"
+  # set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ," # target emoji
+  # set -g @tmux-status-icons " , ,󰙄 ,󰣉 ,󰆤,󱎫 ,󰸘 , , ,"  # target
+  # set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, ,,," # unser construction emoji
+  # set -g @tmux-status-icons "🌃,😪,🪟 ,🌙,💤,⏳️,📅, ,,,"  # night emoji
+  # set -g @tmux-status-icons "🎹,🕺,🥁,🎸,🎶,🕰 ,📆,󰰐 ,󰯲 ,"  # music emoji
+  # set -g @tmux-status-icons "🏟 ,🏊,🏓,⚽ ,🥅,⏳️,📆,󰰐 ,󰯲 ," # sport emoji
+  # set -g @tmux-status-icons "🏔 ,⛄,🚠 ,🏂 ,🍧,⌚️,🎄,󰰐 ,󰯲 ," # winter emoji
+  # set -g @tmux-status-icons "󰒋 ,󱟄, ,  ,󰄬 ,󱦟 ,󰸗 , , ," # ship
+  # set -g @tmux-status-icons "󰒋 ,󱟄, ,  , ,󱦟 ,󰸗 , , ," # play
   # set -g @tmux-status-icons "󰹕 ,󰶪 ,󰃥 , 󰙏 ,󰸕 ,󱫍 , ,i, ,"  # study
   # set -g @tmux-status-icons "󰠴 ,󰑮 ,󱉾  ,  ,󰦶 ,󰔛 , , , ,"  # sport
-  # set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ,"
-  # set -g @tmux-status-icons " , ,󰙄 ,󰣉 ,󰆤,󱎫 ,󰸘 , , ,"  # icon / no sep
-  # set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, ,,,"
-  # set -g @tmux-status-icons "🌃,😪,🪟 ,🌙,💤,⏳️,📅, ,,,"
-  # set -g @tmux-status-icons "🎹,🕺,🥁,🎸,🎶,🕰 ,📆,󰰐 ,󰯲 ,"
-  # set -g @tmux-status-icons "🏟 ,🏊,🏓,⚽ ,🥅,⏳️,📆,󰰐 ,󰯲 ,"
-  # set -g @tmux-status-icons "🏔 ,⛄,🚠 ,🏂 ,🍧,⌚️,🎄,󰰐 ,󰯲 ,"
-  # set -g @tmux-status-icons " , , , , , ,󰸗 , , ,"
-  # set -g @tmux-status-icons " , , ,󰎇 ,󰽺 , ,󰸗 , , ,"
-  # set -g @tmux-status-icons "󰒋 ,󰙌, , , , ,󰸗 , , ,"
-  # set -g @tmux-status-icons " , , ,󱝂 , , ,󰸗 , , ,"
-  # set -g @tmux-status-icons "󰒋 , ,󱪳 ,󰠳 , ,󱎫 ,󰸘 ,M:,C:,"
-  # set -g @tmux-status-icons "󱃸 , ,󱪳 ,󰠳 , ,󱎫 ,󰸘 ,M:,C:,"
-  # set -g @tmux-status-icons " ,󱗌 ,󰕮 ,󰖙 , ,󱎫 ,󰸘 ,󰰐 ,󰯲 ,"
-  # set -g @tmux-status-icons "  ,󰙄 ,󱪳 , , ,󱎫 ,󰸘 ,󰰐 ,󰯲 ,"
-  # set -g @tmux-status-icons " ,󱚟 ,󰠡 ,󰣉 , ,󱦟 ,󰸗 ,󰰐 ,󰯲 ,"
-  # set -g @tmux-status-icons " , , , , , ,󰸗 , , ,"
-  # set -g @tmux-status-icons "󰥱 ,󰙄 ,󰪟 ,󰀨 , ,󱑁 ,󰸗 ,󰰐 ,󰯲 ,"
-  # set -g @tmux-status-icons " ,󱎂 ,󰠡 ,󱝆 ,󱁕,󰄉 ,󰸗 , , ,"
-  # set -g @tmux-status-icons "󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 ,󰄉 ,󰸗 , , ,"
-  # set -g @tmux-status-icons "󱠇 ,󰙊 , ,󱓞 , ,󱦟 ,󰸗 , , ,"
-  # set -g @tmux-status-icons "󰕲 ,󰙄 , ,󰣉 , ,󱦟 ,󰸗 , , ,"
+  # set -g @tmux-status-icons " , , , , , ,󰸗 , , ," # curved arrow
+  # set -g @tmux-status-icons " , , ,󰎇 ,󰽺 , ,󰸗 , , ," # music
+  # set -g @tmux-status-icons "󰒋 ,󰙌, , , , ,󰸗 , , ," # biohazard
+  # set -g @tmux-status-icons " , , ,󱝂 , , ,󰸗 , , ," # star
+  # set -g @tmux-status-icons "󰒋 , ,󱪳 ,󰠳 , ,󱎫 ,󰸘 ,M:,C:," # steering wheel
+  # set -g @tmux-status-icons "󱃸 , ,󱪳 ,󰠳 , ,󱎫 ,󰸘 ,M:,C:," # steering wheel
+  # set -g @tmux-status-icons " ,󱗌 ,󰕮 ,󰖙 , ,󱎫 ,󰸘 ,󰰐 ,󰯲 ," # sun 
+  # set -g @tmux-status-icons "  ,󰙄 ,󱪳 , , ,󱎫 ,󰸘 ,󰰐 ,󰯲 ," # play round
+  # set -g @tmux-status-icons " ,󱚟 ,󰠡 ,󰣉 , ,󱦟 ,󰸗 ,󰰐 ,󰯲 ," # target
+  # set -g @tmux-status-icons " , , , , , ,󰸗 , , ," # play
+  # set -g @tmux-status-icons "󰥱 ,󰙄 ,󰪟 ,󰀨 , ,󱑁 ,󰸗 ,󰰐 ,󰯲 ," # important
+  # set -g @tmux-status-icons " ,󱎂 ,󰠡 ,󱝆 ,󱁕,󰄉 ,󰸗 , , ," # surf
+  # set -g @tmux-status-icons "󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 ,󰄉 ,󰸗 , , ," # wave
+  # set -g @tmux-status-icons "󱠇 ,󰙊 , ,󱓞 , ,󱦟 ,󰸗 , , ," # hello
+  # set -g @tmux-status-icons "󰕲 ,󰙄 , ,󰣉 , ,󱦟 ,󰸗 , , ," # target
   
   set_status_left
   set_status_center
