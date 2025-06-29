@@ -6,11 +6,8 @@
 ### Nerd Font
 [Nerd Font github page](https://github.com/ryanoasis/nerd-fonts)
 Need to install the Nerd Font for the icons to display properly.
-
-This README.md page not support Nerd Font
-Therfore below codes `set_icons` icons just display box characters
-icon:
-![./images/icon_characters.png](./images/icon_characters.png)
+- not use Nerd Font
+[./images/not-user-nerd-font.png](./images/not-use-nerd-font.png)
 
 ### plugins
 If want to see mem/cpu usage percent  
@@ -36,24 +33,22 @@ add to  `.tmux.conf` file:
 ```shell
 run $HOME/.tmux/plugins/tmux-status/tmux-status.tmux
 ```
+Install tmux plugin
+```shell
+<prefix>+I # default tmux <prefix> is Ctrl+b
+```
 
 ## Usage
-- change `tmux-status.tmux` and reload plugin
-1. change `tmux-status.tmux` main function
+- change `~/.tmux.conf`  and reload plugin
+1. set options in `~/.tmux.conf` 
+  - You can change it to any colors, icons or separators.
 ```shell
-main() {
-  ...
-  # change below 2 lines
-  set_color "default" "#16610E" "#F97A00" "#FED16A"  # green orange
-  set_icons "" "" "" "" " " " " " " " " " " "󰸗 " " " " "
-
-  status_left
-  status_center
-  status_right
-
-  tmux set -g pane-active-border-style "fg=$color1"
-}
-
+# example color, icons, separators, user name, mem, cpu
+set -g @tmux-status-colors "default" 
+set -g @tmux-status-separators ",,｜,｜," 
+set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅,M:,C:"
+set -g @tmux-status-show-user-name off
+set -g @tmux-status-show-mem-cpu off
 ```
 2. reload `tmux-status.tmux` plugin
   - Reload tmux
@@ -62,72 +57,91 @@ main() {
     - press \<prefix>+: and type `:run /path/to/plugin/tmux-status.tmux`
     - type command in shell: `tmux run /path/to/plugin/tmux-status.tmux`
 
-### Default 
-- default color if don't set colors & icons
-- separator : /
-- color: green orange yellow
-```shell
-bg_c="default" # statusbar bg color
-c1="#16610E" # session & MEM CPU bg color
-c2="#F97A00" # username & date bg color
-c3="#FED16A" # pane & time bg color
+### Colors & Separators & Icons
+#### Default
+- if not set options in `~/.tmux.conf`
+- applied default options 
+  - separator :  # Óright upper triangle
+  - color: green orange yellow
+  - icon: normal icons
+  - mem cpu : off
 
-section_l_icon=""
-section_r_icon=""
-sp_l_icon=""
-sp_r_icon=""
-session_icon=" "
-user_icon=" "
-pane_icon=" "
-curr_icon=" "
-time_icon=" "
-date_icon="󰸗 "
-mem_icon=" "
-cpu_icon=" "
-```
 ![./images/default.png](./images/default.png)
 
-### Rounded Separators & Cyberpunk
+#### Rounded Separators & Cyberpunk & round icons
 ```shell
-  set_color "default" "#541690" "#FF4949" "#FFCD38"  # cyberpunk - purple pink orange
-  set_icons "" "" "" "" "󰥱 " "󰙄 " "󰪟 " "󰀨 " "󱑁 " "󰸗 " "󰰐 " "󰯲 "
+set -g @tmux-status-colors "default,#541690,#FF4949,#FFCD38"
+set -g @tmux-status-separators ",, , ,"
+set -g @tmux-status-icons "󰥱 ,󰙄 ,󰪟 ,󰀨 , ,󱑁 ,󰸗 ,󰰐 ,󰯲 ,"
 ```
 ![./images/round-cyberpunk.png](./images/round-cyberpunk.png)
 
-### Triangle Separators & Nord Color 
+#### Triangle Separators & Nord Color & emoji icons 
 ```shell
-  set_color "deafult" "#88C0D0" "#2E3440" "#FFFFFF" # Nord
-  set_icons "" "" "  " "  " "󱃸 " " " "󱪳 " " " "󱎫 " "󰸘 " " " " "
+set -g @tmux-status-colors "default,#88C0D0,#2E3440,#FFFFFF"
+set -g @tmux-status-separators ",, , ,"
+set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ,"
 ```
 ![./images/triangle-nord.png](./images/triangle-nord.png)
 
-### Inverse Triangle & Neon (Ansi Color - no hex color)
-- Can Use ANSI Color
-```shell
-  set_color default teal yellowgreen cyan yellow # Neon
-  set_icons "" "" "" "" " " "󱚟 " "󰠡 " "󰣉 " "󱦟 " "󰸗 " "󰰐 " "󰯲 "
-```
-![/images/inversetriangle-neon.png](./images/inversetriangle-neon.png)
 
-### Wave Separators & Cold (status background light)
+### Wave Separators & Cold
 ```shell
-  set_color "light" "#11009E" "#4942E4" "#8696FE"  # cold - navy blue purple
-  set_icons " " "" "" "" " " "󱎂 " "󰠡 " "󱝆 " "󰚱 " "󰸗 " " " " "
+set -g @tmux-status-colors "default,#006DFA,#8CB2F1,#D0CEDD"
+set -g @tmux-status-separators " ,,,,"
+set -g @tmux-status-icons "󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 ,󰄉 ,󰸗 , , ,"
 ```
 ![./images/wave-cold.png](./images/wave-cold.png)
 
-### Flame Separators & Red pearch Green
+#### Flame Separators & Red pearch Green
 ```shell
-  set_color "default" "#A62C2C" "#E83F25" "#EA7300"  # flame red orange yellow 
-  set_icons " " "" "|" "|" "󱠇 " "󰙊 " " " "󱓞 " "󱦟 " "󰸗 " " " " "
+set -g @tmux-status-colors "default,#A62C2C,#E83F25,#EA7300"
+set -g @tmux-status-separators " ,, , ,"
+set -g @tmux-status-icons "󱠇 ,󰙊 , ,󱓞 , ,󱦟 ,󰸗 , , ,"
 ```
 ![./images/flame-red.png](./images/flame-red.png)
 
-### No Seraprator No Icon & Olive Gray Color
+#### No Separator No Icon & Olive Gray Color
 ```shell
-  set_color "dark" "#626F47" "#A4B465" "#F5ECD5"  # gray olive
-  set_icons "" "" "" "" "" "" "" "" "" "" "" "" # use "" if don't want icon and seperator
+set -g @tmux-status-colors "default,#627F47,#A4B465,#F5ECD5"
+set -g @tmux-status-separators ", "
+set -g @tmux-status-icons ", "
 ```
 
 ![./images/noseparator-noicon-grayolive.png](./images/noseparator-noicon-grayolive.png)
 
+### User Name
+- I think the username is always the same value,
+- so it doesn't really matter if it's not displayed,
+- so I made it an on/off option.
+#### No User Name
+```shell
+set -g @tmux-status-show-user-name "off" # off or "off"
+```
+![./images/no-user-name.png](./images/no-user-name.png)
+
+#### Show User Name
+```shell
+set -g @tmux-status-show-user-name "on" # on of "on"
+```
+![./images/user-name.png](./images/user-name.png)
+
+
+
+
+### Memory & CPU
+#### No Memory & CPU Info
+- If you don't want to see mem cpu info
+- or not install tmux-mem-cpu-load plugin
+```shell
+set -g @tmux-status-mem-cpu "off" # off or "off"
+```
+![./images/no-mem-cpu.png](./images/no-mem-cpu.png)
+
+#### Show Memory & CPU Info
+```shell
+set -g @tmux-status-show-mem-cpu "on" # on or "on"
+```
+![./images/mem-cpu.png](./images/mem-cpu.png)
+
+### 
