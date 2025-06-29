@@ -69,7 +69,7 @@ set -g @tmux-status-show-mem-cpu off
   - separator :  # right upper triangle
   - color: green orange yellow
   - icon: normal icons
-  - user name : off
+  - user name : on
   - mem cpu : off
 
 ![./images/default.png](./images/default.png)
