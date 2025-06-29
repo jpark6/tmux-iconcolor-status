@@ -46,11 +46,16 @@ add to  `.tmux.conf` file:
 - change `~/.tmux.conf`  and reload plugin
 1. set options in `~/.tmux.conf` 
   - You can change it to any colors, icons or separators.
+  - colors : "status_bg,color1,color2,color3"
+    - status_bg : default: transparent, dark/black : theme dark color, light/white : theme light color, #[A-Fa-f0-9]{6} : rgb hex color
+    - color1 : main color, color2 : sub color, color3 : third color
+  - separators "section_left_icon,section_right_icon,separator_left_icon,separator_right_icon"
+  - icons "session,user,pane,current window,prev windows,time,date,cpu,memory"
 ```shell
 # example color, icons, separators, user name, mem, cpu
 set -g @tmux-status-colors "default,#FD8A8A,#F1F7B5,#A8D1D1" 
 set -g @tmux-status-separators ",,｜,｜," 
-set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅,M:,C:"
+set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅,C:,M:"
 set -g @tmux-status-show-user-name on
 set -g @tmux-status-show-cpu-mem off
 ```
