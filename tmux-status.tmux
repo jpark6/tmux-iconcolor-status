@@ -170,13 +170,13 @@ set_preset() {
   # set -g @tmux-status-icons "󱠇 ,󰙊 , ,󱓞 , ,󱦟 ,󰸗 , , ," # hello
   # set -g @tmux-status-icons "󰕲 ,󰙄 , ,󰣉 , ,󱦟 ,󰸗 , , ," # target
 
-  tmux set -g @tmux-status-colors "default,#5EABD6,#FEFBC7,#FFB4B4" # PastlCyan2 - more bright
-  tmux set -g @tmux-status-separators " , ,,," # pixel
-  tmux set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ," # target emoji
+  tmux set -g @tmux-status-colors "default,#1A5319,#80AF81,#D6EFD8" # GradientGreen - gree dark → light
+  tmux set -g @tmux-status-separators ",, , ," # round
+  tmux set -g @tmux-status-icons "🎹,🕺,🥁,🎸,🎶,🕰 ,📆,󰰐 ,󰯲 ,"  # music emoji
 }
 main() {
-  # options in set_preset have higher priority than options in this .tmux.conf
-  # set_preset
+  # options in set_preset have higher priority than options in ~/.tmux.conf
+  set_preset
 
   global_colors=$(tmux show -gqv @tmux-status-colors 2>/dev/null)
   if [ -n "$global_colors" ]; then 
