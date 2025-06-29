@@ -66,9 +66,9 @@ set_icons() {
 set_status_left() {
   global_show_user_name=$(tmux show -gqv @tmux-status-show-user-name 2>/dev/null)
   if [ -n "$global_show_user_name" ] && [ "$global_show_user_name" = "off"  ]; then 
-    tmux set -g status-left "#[fg=$c2,bg=$c1] $session_icon#S #[fg=$c1,bg=$c2]$section_r_icon#[fg=$c1,bg=$c2] $user_icon#[bold,italics]#(whoami) #[default]#[fg=$c2,bg=$c3]$section_r_icon#[fg=$c1,bg=$c3] $pane_icon#{window_index}:#{pane_index} #[fg=$c3,bg=$bg_c]$section_r_icon "
-  else
     tmux set -g status-left "#[fg=$c2,bg=$c1] $session_icon#S #[fg=$c1,bg=$c2]$section_r_icon $pane_icon#{window_index}:#{pane_index} #[fg=$c2,bg=$bg_c]$section_r_icon"
+  else
+    tmux set -g status-left "#[fg=$c2,bg=$c1] $session_icon#S #[fg=$c1,bg=$c2]$section_r_icon#[fg=$c1,bg=$c2] $user_icon#[bold,italics]#(whoami) #[default]#[fg=$c2,bg=$c3]$section_r_icon#[fg=$c1,bg=$c3] $pane_icon#{window_index}:#{pane_index} #[fg=$c3,bg=$bg_c]$section_r_icon "
   fi
 
   tmux set -g status-left-length 200
