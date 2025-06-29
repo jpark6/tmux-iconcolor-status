@@ -138,7 +138,7 @@ set -g @tmux-status-show-user-name "on" # on of "on"
 ### Memory & CPU
 #### No Memory & CPU Info
 - If you don't want to see mem cpu info
-- or not install tmux-mem-cpu-load plugin
+- or not install [thewtex/tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load) plugin
 ```shell
 set -g @tmux-status-mem-cpu "off" # off or "off"
 ```
