@@ -18,6 +18,9 @@ time_icon=" "
 date_icon="󰸗 "
 mem_icon=" "
 cpu_icon=" "
+batt_charged_icon=" "
+batt_discharged_icon="󰁾 "
+batt_attached_icon="󰢝 "
 
 set_colors() {
   colors_string="$(echo ${@} | tr -d ' ')"
@@ -61,6 +64,9 @@ set_icons() {
   date_icon="${icons_array[6]}"
   cpu_icon="${icons_array[7]}"
   mem_icon="${icons_array[8]}"
+  batt_charged_icon="${icons_array[9]}"
+  batt_discharged_icon="${icons_array[10]}"
+  batt_attached_icon="${icons_array[11]}"
 }
 
 set_status_left() {
@@ -84,12 +90,24 @@ set_status_center() {
 }
 
 set_status_right() {
+  local status_right="#[fg=$c3,bg=$bg_c,align=right]$section_l_icon#[fg=$c1,bg=$c3] $time_icon%H:%M:%S #[fg=$c2,bg=$c3]$section_l_icon#[fg=$c1,bg=$c2] $date_icon%y/%m/%d "
   global_show_mem_cpu=$(tmux show -gqv @tmux-status-show-cpu-mem 2>/dev/null)
   IFS='  ' read -ra mem_cpu_array <<< "$(tmux-mem-cpu-load -m 2 -g 0 -a 0 -i 1)"
-  if [ -n "$global_show_mem_cpu" ] && [ "$global_show_mem_cpu" = "on"  ]; then 
-    tmux set -g status-right "#[fg=$c3,bg=$bg_c,align=right]$section_l_icon#[fg=$c1,bg=$c3] $time_icon%H:%M:%S #[fg=$c2,bg=$c3]$section_l_icon#[fg=$c1,bg=$c2] $date_icon%y/%m/%d #[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1] $cpu_icon${mem_cpu_array[1]}% $sp_l_icon$mem_icon${mem_cpu_array[0]}% #[default]"
+  global_show_battery=$(tmux show -gqv @tmux-status-show-battery)
+
+  tmux set -g @batt_icon_status_charged "$batt_charged_icon"
+  tmux set -g @batt_icon_status_discharging "$batt_discharged_icon"
+  tmux set -g @batt_icon_status_attached "$batt_attached_icon"
+
+  if [ -n "$global_show_mem_cpu" ] && [ "$global_show_mem_cpu" = "on" ] &&
+     [ -n "$global_show_battery" ] && [ "$global_show_battery" = "on" ]; then 
+    tmux set -g status-right "$status_right#[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1] $cpu_icon${mem_cpu_array[1]}% $sp_l_icon$mem_icon${mem_cpu_array[0]}% $sp_l_icon#{battery_icon_status}#{battery_percentage} "
+  elif [ -n "$global_show_mem_cpu" ] && [ "$global_show_mem_cpu" = "on" ]; then 
+    tmux set -g status-right "$status_right#[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1] $cpu_icon${mem_cpu_array[1]}% $sp_l_icon$mem_icon${mem_cpu_array[0]}% "
+  elif [ -n "$global_show_battery" ] && [ "$global_show_battery" = "on" ]; then 
+    tmux set -g status-right "$status_right#[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1] #{battery_icon_status}#{battery_percentage} "
   else 
-  tmux set -g status-right "#[fg=$c2,bg=$bg_c,align=right]$section_l_icon#[fg=$c1,bg=$c2] $time_icon%H:%M:%S #[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1] $date_icon%y/%m/%d #[default]"
+    tmux set -g status-right "#[fg=$c2,bg=$bg_c,align=right]$section_l_icon#[fg=$c1,bg=$c2] $time_icon%H:%M:%S #[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1] $date_icon%y/%m/%d "
   fi
   tmux set -g status-right-length 200
   tmux set -g status-interval 1
@@ -143,41 +161,41 @@ set_preset() {
   # set -g @tmux-status-separators " , ,｜,｜," # pixel
 
   # set -g @tmux-status-icons "," # no icons
-  # set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ," # target emoji
-  # set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, , ," # construction emoji
-  # set -g @tmux-status-icons "🌃,😪,🪟 ,🌙,💤,⏳️,📅,i, ,"  # night emoji
-  # set -g @tmux-status-icons "🎹,🕺,🥁,🎸,🎶,🕰 ,📆,󰯲 ,󰰐 ,"  # music emoji
-  # set -g @tmux-status-icons "🏟 ,🏊,🏓,⚽ ,🥅,⏳️,📆,󰯲 ,󰰐 ," # sport emoji
-  # set -g @tmux-status-icons "🏔 ,⛄,🚠 ,🏂 ,🍧,⌚️,🎄,󰯲 ,󰰐 ," # winter emoji
-  # set -g @tmux-status-icons " , ,󰙄 ,󰣉 ,󰆤,󱎫 ,󰸘 , , ,"  # target
-  # set -g @tmux-status-icons "󰒋 ,󱟄, ,  ,󰄬 ,󱦟 ,󰸗 , , ," # ship
-  # set -g @tmux-status-icons "󰒋 ,󱟄, ,  , ,󱦟 ,󰸗 , , ," # play
-  # set -g @tmux-status-icons "󰹕 ,󰶪 ,󰃥 , 󰙏 ,󰸕 ,󱫍 , , ,i,"  # study
-  # set -g @tmux-status-icons "󰠴 ,󰑮 ,󱉾  ,  ,󰦶 ,󰔛 , , , ,"  # sport
-  # set -g @tmux-status-icons " , , , , , ,󰸗 , , ," # curved arrow
-  # set -g @tmux-status-icons " , , ,󰎇 ,󰽺 , ,󰸗 , , ," # music
-  # set -g @tmux-status-icons "󰒋 ,󰙌, , , , ,󰸗 , , ," # biohazard
-  # set -g @tmux-status-icons " , , ,󱝂 , , ,󰸗 , , ," # star
-  # set -g @tmux-status-icons "󰒋 , ,󱪳 ,󰠳 , ,󱎫 ,󰸘 ,C:,M:," # steering wheel
-  # set -g @tmux-status-icons "󱃸 , ,󱪳 ,󰠳 , ,󱎫 ,󰸘 ,C:,M:," # steering wheel
-  # set -g @tmux-status-icons " ,󱗌 ,󰕮 ,󰖙 , ,󱎫 ,󰸘 ,󰯲 ,󰰐 ," # sun 
-  # set -g @tmux-status-icons "  ,󰙄 ,󱪳 , , ,󱎫 ,󰸘 ,󰯲 ,󰰐 ," # play round
-  # set -g @tmux-status-icons " ,󱚟 ,󰠡 ,󰣉 , ,󱦟 ,󰸗 ,󰯲 ,󰰐 ," # target
-  # set -g @tmux-status-icons " , , , , , ,󰸗 , , ," # play
-  # set -g @tmux-status-icons "󰥱 ,󰙄 ,󰪟 ,󰀨 , ,󱑁 ,󰸗 ,󰯲 ,󰰐 ," # important
-  # set -g @tmux-status-icons " ,󱎂 ,󰠡 ,󱝆 ,󱁕,󰄉 ,󰸗 , , ," # surf
-  # set -g @tmux-status-icons "󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 ,󰄉 ,󰸗 , , ," # wave
-  # set -g @tmux-status-icons "󱠇 ,󰙊 , ,󱓞 , ,󱦟 ,󰸗 , , ," # hello
-  # set -g @tmux-status-icons "󰕲 ,󰙄 , ,󰣉 , ,󱦟 ,󰸗 , , ," # target
+  # set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, ,©️,⛽ ,󰁾 ,󰢝 ," # target emoji
+  # set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, , , ,󱊢 ,󱊥 ," # construction emoji
+  # set -g @tmux-status-icons "🌃,😪,🪟 ,🌙,💤,⏳️,📅,i, , ,󰁾 ,󰢝 ,"  # night emoji
+  # set -g @tmux-status-icons "🎹,🕺,🥁,🎸,🎶,🕰 ,📆,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"  # music emoji
+  # set -g @tmux-status-icons "🏟 ,🏊,🏓,⚽ ,🥅,⏳️,📆,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # sport emoji
+  # set -g @tmux-status-icons "🏔 ,⛄,🚠 ,🏂 ,🍧,⌚️,🎄,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # winter emoji
+  # set -g @tmux-status-icons " , ,󰙄 ,󰣉 ,󰆤,󱎫 ,󰸘 , , , ,󰁾 ,󰢝 ,"  # target
+  # set -g @tmux-status-icons "󰒋 ,󱟄, ,  ,󰄬 ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # ship
+  # set -g @tmux-status-icons "󰒋 ,󱟄, ,  , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # play
+  # set -g @tmux-status-icons "󰹕 ,󰶪 ,󰃥 , 󰙏 ,󰸕 ,󱫍 , , ,i, ,󰁾 ,󰢝 ,"  # study
+  # set -g @tmux-status-icons "󰠴 ,󰑮 ,󱉾  ,  ,󰦶 ,󰔛 , , , , ,󰁾 ,󰢝 ,"  # sport
+  # set -g @tmux-status-icons " , , , , , ,󰸗 , , , ,󰁾 ,󰢝 ," # curved arrow
+  # set -g @tmux-status-icons " , , ,󰎇 ,󰽺 , ,󰸗 , , , ,󰁾 ,󰢝 ," # music
+  # set -g @tmux-status-icons "󰒋 ,󰙌, , , , ,󰸗 , , , ,󰁾 ,󰢝 ," # biohazard
+  # set -g @tmux-status-icons " , , ,󱝂 , , ,󰸗 , , , ,󰁾 ,󰢝 ," # star
+  # set -g @tmux-status-icons "󰒋 , ,󱪳 ,󰠳 , ,󱎫 ,󰸘 ,C:,M:, ,󰁾 ,󰢝 ," # steering wheel
+  # set -g @tmux-status-icons "󱃸 , ,󱪳 ,󰠳 , ,󱎫 ,󰸘 ,C:,M:, ,󰁾 ,󰢝 ," # steering wheel
+  # set -g @tmux-status-icons " ,󱗌 ,󰕮 ,󰖙 , ,󱎫 ,󰸘 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # sun 
+  # set -g @tmux-status-icons "  ,󰙄 ,󱪳 , , ,󱎫 ,󰸘 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # play round
+  # set -g @tmux-status-icons " ,󱚟 ,󰠡 ,󰣉 , ,󱦟 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # target
+  # set -g @tmux-status-icons " , , , , , ,󰸗 , , , ,󰁾 ,󰢝 ," # play
+  # set -g @tmux-status-icons "󰥱 ,󰙄 ,󰪟 ,󰀨 , ,󱑁 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # important
+  # set -g @tmux-status-icons " ,󱎂 ,󰠡 ,󱝆 ,󱁕,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ," # surf
+  # set -g @tmux-status-icons "󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ," # wave
+  # set -g @tmux-status-icons "󱠇 ,󰙊 , ,󱓞 , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # hello
+  # set -g @tmux-status-icons "󰕲 ,󰙄 , ,󰣉 , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # target
 
   tmux set -g @tmux-status-colors "default,#B1AFFF,#FDFDBD,#C8FFD4" # PastelPurple - purple ivory skyblue
   tmux set -g @tmux-status-separators ",, , ," # triangle right > >
-  tmux set -g @tmux-status-icons " ,󱚟 ,󰠡 ,󰣉 , ,󱦟 ,󰸗 ,󰯲 ,󰰐 ," # target
+  tmux set -g @tmux-status-icons " ,󱚟 ,󰠡 ,󰣉 , ,󱦟 ,󰸗 ,󰯲 ,󰰐 , , ,󰢝 ," # target
 }
 
 main() {
   # options in set_preset have higher priority than options in ~/.tmux.conf
-  set_preset
+  # set_preset
 
   global_colors=$(tmux show -gqv @tmux-status-colors 2>/dev/null)
   if [ -n "$global_colors" ]; then 
