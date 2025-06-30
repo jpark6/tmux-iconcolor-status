@@ -20,7 +20,7 @@ mem_icon=" "
 cpu_icon=" "
 batt_charged_icon=" "
 batt_discharged_icon="󰁾 "
-batt_chaging_icon="󰢝 "
+batt_charging_icon="󰢝 "
 
 set_colors() {
   colors_string="$(echo ${@} | tr -d ' ')"
@@ -96,9 +96,9 @@ set_status_right() {
   global_show_battery=$(tmux show -gqv @tmux-status-show-battery)
 
   tmux set -g @batt_icon_status_charged "$batt_charged_icon"
-  tmux set -g @batt_icon_status_charing "$batt_charging_icon"
+  tmux set -g @batt_icon_status_charging "$batt_charging_icon"
   tmux set -g @batt_icon_status_discharging "$batt_discharged_icon"
-  tmux set -g @batt_icon_status_chaging "$batt_charging_icon"
+  tmux set -g @batt_icon_status_attached "$batt_charging_icon"
 
   if [ -n "$global_show_mem_cpu" ] && [ "$global_show_mem_cpu" = "on" ] &&
      [ -n "$global_show_battery" ] && [ "$global_show_battery" = "on" ]; then 
