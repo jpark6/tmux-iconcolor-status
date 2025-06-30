@@ -20,7 +20,7 @@ mem_icon=" "
 cpu_icon=" "
 batt_charged_icon=" "
 batt_discharged_icon="󰁾 "
-batt_attached_icon="󰢝 "
+batt_chaging_icon="󰢝 "
 
 set_colors() {
   colors_string="$(echo ${@} | tr -d ' ')"
@@ -66,7 +66,7 @@ set_icons() {
   mem_icon="${icons_array[8]}"
   batt_charged_icon="${icons_array[9]}"
   batt_discharged_icon="${icons_array[10]}"
-  batt_attached_icon="${icons_array[11]}"
+  batt_chaging_icon="${icons_array[11]}"
 }
 
 set_status_left() {
@@ -96,8 +96,9 @@ set_status_right() {
   global_show_battery=$(tmux show -gqv @tmux-status-show-battery)
 
   tmux set -g @batt_icon_status_charged "$batt_charged_icon"
+  tmux set -g @batt_icon_status_charing "$batt_charging_icon"
   tmux set -g @batt_icon_status_discharging "$batt_discharged_icon"
-  tmux set -g @batt_icon_status_attached "$batt_attached_icon"
+  tmux set -g @batt_icon_status_chaging "$batt_charging_icon"
 
   if [ -n "$global_show_mem_cpu" ] && [ "$global_show_mem_cpu" = "on" ] &&
      [ -n "$global_show_battery" ] && [ "$global_show_battery" = "on" ]; then 
@@ -161,12 +162,12 @@ set_preset() {
   # set -g @tmux-status-separators " , ,｜,｜," # pixel
 
   # set -g @tmux-status-icons "," # no icons
-  # set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, ,©️,⛽ ,󰁾 ,󰢝 ," # target emoji
+  # set -g @tmux-status-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ,⚡️ ,🪫,🔋," # target emoji
   # set -g @tmux-status-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, , , ,󱊢 ,󱊥 ," # construction emoji
   # set -g @tmux-status-icons "🌃,😪,🪟 ,🌙,💤,⏳️,📅,i, , ,󰁾 ,󰢝 ,"  # night emoji
-  # set -g @tmux-status-icons "🎹,🕺,🥁,🎸,🎶,🕰 ,📆,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"  # music emoji
-  # set -g @tmux-status-icons "🏟 ,🏊,🏓,⚽ ,🥅,⏳️,📆,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # sport emoji
-  # set -g @tmux-status-icons "🏔 ,⛄,🚠 ,🏂 ,🍧,⌚️,🎄,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # winter emoji
+  # set -g @tmux-status-icons "🎹,🕺,🥁,🎸,🎶,🕰 ,📆,󰯲 ,󰰐 ,󰚥 , ,󰂄 ,"  # music emoji
+  # set -g @tmux-status-icons "🏟 ,🏊,🏓,⚽ ,🥅,⏳️,📆,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # sport emoji
+  # set -g @tmux-status-icons "🏔 ,⛄,🚠 ,🏂 ,🍧,⌚️,🎄,󰯲 ,󰰐 ,󱐥 ,󰁾 ,󰢝 ," # winter emoji
   # set -g @tmux-status-icons " , ,󰙄 ,󰣉 ,󰆤,󱎫 ,󰸘 , , , ,󰁾 ,󰢝 ,"  # target
   # set -g @tmux-status-icons "󰒋 ,󱟄, ,  ,󰄬 ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # ship
   # set -g @tmux-status-icons "󰒋 ,󱟄, ,  , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # play
@@ -179,7 +180,7 @@ set_preset() {
   # set -g @tmux-status-icons "󰒋 , ,󱪳 ,󰠳 , ,󱎫 ,󰸘 ,C:,M:, ,󰁾 ,󰢝 ," # steering wheel
   # set -g @tmux-status-icons "󱃸 , ,󱪳 ,󰠳 , ,󱎫 ,󰸘 ,C:,M:, ,󰁾 ,󰢝 ," # steering wheel
   # set -g @tmux-status-icons " ,󱗌 ,󰕮 ,󰖙 , ,󱎫 ,󰸘 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # sun 
-  # set -g @tmux-status-icons "  ,󰙄 ,󱪳 , , ,󱎫 ,󰸘 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # play round
+  # set -g @tmux-status-icons "  ,󰙄 ,󱪳 , , ,󱎫 ,󰸘 ,󰯲 ,󰰐 ,󰚥 , ,󰂄 ," # play round
   # set -g @tmux-status-icons " ,󱚟 ,󰠡 ,󰣉 , ,󱦟 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # target
   # set -g @tmux-status-icons " , , , , , ,󰸗 , , , ,󰁾 ,󰢝 ," # play
   # set -g @tmux-status-icons "󰥱 ,󰙄 ,󰪟 ,󰀨 , ,󱑁 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # important
