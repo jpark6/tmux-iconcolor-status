@@ -54,7 +54,7 @@ set -g @plugin 'jpark6/tmux-status'
     - status_bg : default: transparent, dark/black : theme dark color, light/white : theme light color, #[A-Fa-f0-9]{6} : rgb hex color
     - color1 : main color, color2 : sub color, color3 : third color
   - separators "section_left_icon,section_right_icon,separator_left_icon,separator_right_icon"
-  - icons "session,user,pane,current window,prev windows,time,date,cpu,memory,charged,discharged,attached"
+  - icons "session,user,pane,current window,prev windows,time,date,cpu,memory,charged,discharged,charging"
 ```shell
 # example color, icons, separators, user name, mem, cpu
 set -g @tmux-status-colors "default,#FD8A8A,#F1F7B5,#A8D1D1" 
