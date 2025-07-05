@@ -71,7 +71,7 @@ set -g @iconcolor-separators " , ,┃,┃," # pixel
 set -g @iconcolor-icons " , ,󰙄 ,󰣉 ,󰆤 , ,󱎫 ,󰸘 , , , ,󰁾 ,󰢝 ,"  # target
 set -g @iconcolor-show-user-name on
 set -g @iconcolor-show-cpu-mem off
-set -g @iconcolor-show-battery on
+set -g @iconcolor-show-battery off
 ```
 - example options screenshot
 - light terminal theme
