@@ -12,8 +12,8 @@
 ## ⚠️Preinstall
 ### Nerd Font
 [Nerd Font github page](https://github.com/ryanoasis/nerd-fonts)
-Need to install the Nerd Font for the icons to display properly.
-- Not use Nerd Font
+- Need to install the Nerd Font for the icons to display properly.
+- No use Nerd Font
 ![./images/no-use-nerd-font.png](./images/no-use-nerd-font.png)
 - Use Nerd Font
 ![./images/user-nerd-font.png](./images/use-nerd-font.png)
@@ -62,13 +62,13 @@ set -g @plugin 'jpark6/tmux-iconcolor-status'
   - colors : "status_bg,color1,color2,color3"
     - status_bg : default: transparent, dark/black : theme dark color, light/white : theme light color, #[A-Fa-f0-9]{6} : rgb hex color
     - color1 : main color, color2 : sub color, color3 : third color
-  - separators "section_left_icon,section_right_icon,separator_left_icon,separator_right_icon"
-  - icons "session,user,pane,current window,prev windows,time,date,cpu,memory,charged,discharged,charging"
+  - separators "section_left,section_right,separator_left,separator_right"
+  - icons "session,user,pane,current window,last windows, zoomed window,time,date,cpu,memory,charged,discharged,charging"
 ```shell
 # example color, icons, separators, user name, mem, cpu
-set -g @iconcolor-colors "default,#FD8A8A,#F1F7B5,#A8D1D1" 
-set -g @iconcolor-separators ",,｜,｜," 
-set -g @iconcolor-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ,⚡️ ,🪫,🔋,"
+set -g @iconcolor-colors "#FD8A8A,#F1F7B5,#A8D1D1,default" # PastelPink - pink yellow blue
+set -g @iconcolor-separators " , ,┃,┃," # pixel
+set -g @iconcolor-icons " , ,󰙄 ,󰣉 ,󰆤 , ,󱎫 ,󰸘 , , , ,󰁾 ,󰢝 ,"  # target
 set -g @iconcolor-show-user-name on
 set -g @iconcolor-show-cpu-mem off
 set -g @iconcolor-show-battery on
@@ -83,55 +83,50 @@ set -g @iconcolor-show-battery on
   - Reload tmux
   ```shell
   <prefix>+I # default tmux <prefix> is Ctrl+b
+  # or
+  tmux source-file ~/.tmux.conf
   ```
 
 ## Colors & Separators & Icons
 ### Default
 - if not set options in `~/.tmux.conf`
 - applied default options 
-  - separator : `` # right upper triangle
-  - color: green orange yellow
-  - icon: normal icons
+  - separator : none
+  - color: fg: terminal fg bg: terminal bg
+  - icon: no icon
   - user name : on
   - cpu mem : off
+  - battery : off
 
 ![./images/default-light.png](./images/default-light.png)
 ![./images/default-dark.png](./images/default-dark.png)
 
 ### Rounded Separators & Cyberpunk & round icons
 ```shell
-set -g @iconcolor-colors "default,#541692,#FF4949,#FFCD38"
-set -g @iconcolor-separators ",, , ,"
-set -g @iconcolor-icons "  ,󰙄 ,󱪳 , , ,󱎫 ,󰸘 ,󰯲 ,󰰐 ,󰚥 , ,󰂄 ," # play round
+set -g @iconcolor-separators ",, , ," # round
+set -g @iconcolor-colors "#541690,#FF4949,#FFCD38,default" # Cyberpunk - purple pink orange
+set -g @iconcolor-icons "󰥱 ,󰙄 ,󰪟 ,󰀨 , , ,󱑁 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # important
 ```
 ![./images/round-cyberpunk-light.png](./images/round-cyberpunk-light.png)
 ![./images/round-cyberpunk-dark.png](./images/round-cyberpunk-dark.png)
 
 ### Triangle Separators & Nord Color & emoji icons 
 ```shell
-set -g @iconcolor-colors "default,#88C0D0,#2E3440,#FFFFFF"
-set -g @iconcolor-separators ",, , ,"
-set -g @iconcolor-icons "🖥 ,🤖 ,🪟 ,🎯,✨,⏳️,📅, , ,⚡️ ,🪫,🔋," # target emoji
-
+set -g @iconcolor-colors "#88C0D0,#2E3440,#FFFFFF,default" # Nord - skyblue darkgray white
+set -g @iconcolor-separators ",, , ," # triangle right > >
+set -g @iconcolor-icons "🖥 ,🤖 ,🪟 ,🎯,✨,🔍,⏳️,📅, , ,⚡️,🪫,🔋," # target emoji
 ```
 ![./images/triangle-nord-light.png](./images/triangle-nord-light.png)
 ![./images/triangle-nord-dark.png](./images/triangle-nord-dark.png)
 
-### Pixel Separators & Pastel & Construction emoji icons
-```shell
-set -g @iconcolor-colors "default,#6EABD6,#FEFBC7,#FFB4B4" # PastlCyan2 - more bright
-set -g @iconcolor-separators " , ,,," # pixel
-set -g @iconcolor-icons "🧱,👷,🪟 ,🏗 ,🚧,⏳️,📅, , , ,󱊢 ,󱊥 ," # construction emoji
-
-```
 ![./images/pixel-pastel-light.png](./images/pixel-pastel-light.png)
 ![./images/pixel-pastel-dark.png](./images/pixel-pastel-dark.png)
 
 ### Wave Separators & Cold & beach icons
 ```shell
-set -g @iconcolor-colors "default,#006DFA,#8CB2F1,#D0CEDD"
-set -g @iconcolor-separators " ,,,,"
-set -g @iconcolor-icons "󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ," # wave
+set -g @iconcolor-colors "#005DFA,#8CB2F1,#D0CEDD,default" # Cold - blue skyblue white
+set -g @iconcolor-separators " ,,┃,┃," # wave
+set -g @iconcolor-icons " ,󱎂 ,󰠡 ,󱝆 ,󱁕, ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ," # surf
 ```
 ![./images/wave-cold-light.png](./images/wave-cold-light.png)
 ![./images/wave-cold-dark.png](./images/wave-cold-dark.png)
