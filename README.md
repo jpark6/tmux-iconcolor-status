@@ -51,6 +51,8 @@ set -g @plugin 'jpark6/tmux-iconcolor-status'
 - For both TPM and Manual methods, you must enter the install command.
   ```shell
   <prefix>+I # default tmux <prefix> is Ctrl+b
+  # or
+  tmux source-file ~/.tmux.conf
   ```
 
 ## Usage
