@@ -55,7 +55,6 @@ set -g @plugin 'jpark6/tmux-iconcolor-status'
   tmux source-file ~/.tmux.conf
   ```
 
-
 2. reload `iconcolor.tmux` plugin
   - Reload tmux
   ```shell
@@ -67,6 +66,9 @@ set -g @plugin 'jpark6/tmux-iconcolor-status'
 ## Colors & Separators & Icons
   - Theme: For simple applying of colors, separators, and icons, use `@iconcolor-theme`
   - Preset: For detailed applying of colors, separators, and icons, use `@iconcolor-colors`, `@icon-separartors`, and `@iconcolor-icons`
+  - If set both theme option and preset options, the theme option is applied and then overwritten by the preset options
+  - It doesn't matter which option was declared first.
+
 ### Default
 - if not set options in `~/.tmux.conf`
 - applied default options 
@@ -98,7 +100,7 @@ set -g @iconcolor-theme "pastel,pixel,target-emoji"
 ![./images/pastel-pixel-light.png](./images/pastel-pixel-light.png)
 ![./images/pastel-pixel-dark.png](./images/pastel-pixel-dark.png)
 
-#### Green Gradient & Slant
+#### Gradient Green & Slant
 ```shell
 set -g @iconcolor-theme "gradient-green,slant-right,play"
 ```  
@@ -124,13 +126,13 @@ set -g @iconcolor-theme "nord,triangle-right,star"
 
 ### Preset 
 - set `@iconcolor-colors` 
-- parameter: "color1, color2, color3, bg"
+  - parameter: "color1, color2, color3, bg"
 - set `@iconcolor-separators` 
-- parameter: "section left, section right, separator left, separator right"
+  - parameter: "section left, section right, separator left, separator right"
 - set `@iconcolor-icons` 
-- parameter: "session,user,pane,current window,last window,zoomed window,time,date,charged,uncharging,charging"
+  - parameter: "session,user,pane,current window,last window,zoomed window,time,date,charged,uncharging,charging"
 - Presets in `preset.sh`
-- You can apply those settings to the `~.tmux.conf` file. 
+- Can apply those settings to the `~.tmux.conf` file. 
 - Or you can apply any other settings.
 
 #### Cyberpunk & Rounded 
@@ -152,7 +154,7 @@ set -g @iconcolor-icons " ,󱎂 ,󰠡 ,󱝆 ,󱁕, ,󰄉 ,󰸗 , , ,
 ![./images/wave-cold-light.png](./images/wave-cold-light.png)
 ![./images/wave-cold-dark.png](./images/wave-cold-dark.png)
 
-### Only FG Olive & No Separators No Icons
+### Only Olive Text & No Separators No Icons
 - Only set color1, the background will be transparent and the text will be color1.
 - Set separators and icons to "," because if set them to "", the shell script will say they have no value.
 ```shell
