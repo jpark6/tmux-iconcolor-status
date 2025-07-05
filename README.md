@@ -55,13 +55,34 @@ set -g @plugin 'jpark6/tmux-iconcolor-status'
   tmux source-file ~/.tmux.conf
   ```
 
-2. reload `iconcolor.tmux` plugin
-  - Reload tmux
-  ```shell
-  <prefix>+I # default tmux <prefix> is Ctrl+b
-  # or
-  tmux source-file ~/.tmux.conf
-  ```
+## ✍️ Usage
+- change `~/.tmux.conf`  and reload plugin
+1. set options in `~/.tmux.conf` 
+    - use `@iconcolor-theme`
+    ```shell
+    set -g @iconcolor-theme "pastel,pixel,target"
+    set -g @iconcolor-show-user-name on
+    set -g @iconcolor-show-cpu-mem off
+    set -g @iconcolor-show-battery on
+    ```
+
+    - use `@iconcolor-colors`, `@iconcolor-separators`, `@iconcolor-icons`
+    ```shell
+    set -g @iconcolor-colors "#FD8A8A,#F1F7B5,#A8D1D1,default" # PastelPink - pink yellow blue
+    set -g @iconcolor-separators " , ,┃,┃," # pixel
+    set -g @iconcolor-icons " , ,󰙄 ,󰣉 ,󰆤 , ,󱎫 ,󰸘 , , , ,󰁾 ,󰢝 ,"  # target
+    set -g @iconcolor-show-user-name on
+    set -g @iconcolor-show-cpu-mem off
+    set -g @iconcolor-show-battery on
+    ```
+
+2. reload `iconcolor-status.tmux` plugin
+   - Reload tmux
+   ```shell
+   <prefix>+I # default tmux <prefix> is Ctrl+b
+   # or
+   tmux source-file ~/.tmux.conf
+   ```
 
 ## Colors & Separators & Icons
   - Theme: For simple applying of colors, separators, and icons, use `@iconcolor-theme`
@@ -91,7 +112,7 @@ set -g @plugin 'jpark6/tmux-iconcolor-status'
   - separators theme:
     round,slant-left,slant-down,slant-up,triangle-both,triangle-left,triangle-right,triangle-inverse,wave,flame,pixel,
   - icons theme:
-    none,target-emoji,construction-emoji,night-emoji,music-emoji,sport-emoji,winter-emoji,target,ship,play,study,sport,curvedarrow,music,biohazard,star,steeringwheel,steeringwheel,sun,playround,target,play,important,surf,wave,hello,target,winter,
+    none,target-emoji,construction-emoji,night-emoji,music-emoji,sport-emoji,winter-emoji,target,ship,airplain,study,sport,curvedarrow,music,biohazard,star,steeringwheel,sun,playround,target,play,important,surf,wave,hello,target,winter,
 
 #### Pastel & Pixcel
 ```shell
@@ -102,7 +123,7 @@ set -g @iconcolor-theme "pastel,pixel,target-emoji"
 
 #### Gradient Green & Slant
 ```shell
-set -g @iconcolor-theme "gradient-green,slant-right,play"
+set -g @iconcolor-theme "gradient-green,slant-right,airplain"
 ```  
 ![./images/green-slant-light.png](./images/green-slant-light.png)
 ![./images/green-slant-dark.png](./images/green-slant-dark.png)
@@ -114,7 +135,7 @@ set -g @iconcolor-theme "flame,flame,hello"
 ![./images/flame-red-light.png](./images/flame-red-light.png)
 ![./images/flame-red-dark.png](./images/flame-red-dark.png)
 
-#### Node & Triangle right
+#### Nord & Triangle right
 ```shell
 set -g @iconcolor-theme "nord,triangle-right,star"
 

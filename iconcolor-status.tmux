@@ -259,7 +259,7 @@ set_theme() {
     ship)
       icons="󰒋 ,󱟄, , ,󰄬 , ,󱦟 ,󰸗 , , , ,󱊢 ,󱊥 ,"
       ;;
-    play)
+    airplane)
       icons="󰒋 ,󱟄, , , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
     study)
@@ -282,9 +282,6 @@ set_theme() {
       ;;
     steeringwheel)
       icons="󰒋 , ,󱪳 ,󰠳 , , ,󱎫 ,󰸘 ,C:,M:, ,󰁾 ,󰢝 ,"
-      ;;
-    steeringwheel)
-      icons="󱃸 , ,󱪳 ,󰠳 , , ,󱎫 ,󰸘 ,C:,M:, ,󰁾 ,󰢝 ,"
       ;;
     sun)
       icons=" ,󱗌 ,󰕮 ,󰖙 , , ,󱎫 ,󰸘 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
