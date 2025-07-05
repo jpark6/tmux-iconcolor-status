@@ -51,7 +51,7 @@ set_icons() {
 }
 
 set_status_left() {
-  global_show_user_name=$(tmux show -gqv @tmux-status-show-user-name)
+  global_show_user_name=$(tmux show -gqv @iconcolor-show-user-name)
   if [ -n "$global_show_user_name" ] && [ "$global_show_user_name" = "off"  ]; then 
     tmux set -g status-left "#[fg=$c2,bg=$c1] $session_icon#S$([ -z "$section_r_icon"] && echo " ")#[fg=$c1,bg=$c2]$section_r_icon $pane_icon#{window_index}:#{pane_index}$([ -z "$section_r_icon"] && echo " ")#[fg=$c2,bg=$bg_c]$section_r_icon"
   else
@@ -72,8 +72,8 @@ set_status_center() {
 
 set_status_right() {
   local status_right="#[fg=$c3,bg=$bg_c,align=right]$section_l_icon#[fg=$c1,bg=$c3]$([ -z "$section_l_icon"] && echo " ")$time_icon%H:%M:%S #[fg=$c2,bg=$c3]$section_l_icon#[fg=$c1,bg=$c2]$([ -z "$section_l_icon"] && echo " ")$date_icon%y/%m/%d "
-  local show_cpu_mem=$(tmux show -gqv @tmux-status-show-cpu-mem)
-  local show_battery=$(tmux show -gqv @tmux-status-show-battery)
+  local show_cpu_mem=$(tmux show -gqv @iconcolor-show-cpu-mem)
+  local show_battery=$(tmux show -gqv @iconcolor-show-battery)
 
   if command -v "tmux-mem-cpu-load">/dev/null 2>&1; then
     IFS='  ' read -ra cpu_mem_array <<< "$(tmux-mem-cpu-load -m 2 -g 0 -a 0 -i 1)"
@@ -105,9 +105,9 @@ main() {
   # options in ./preset.sh have higher priority than options in ~/.tmux.conf
   # bash ./preset.sh 
 
-  set_colors $(tmux show -gqv @tmux-status-colors)
-  set_separators $(tmux show -gqv @tmux-status-separators)
-  set_icons $(tmux show -gqv @tmux-status-icons)
+  set_colors $(tmux show -gqv @iconcolor-colors)
+  set_separators $(tmux show -gqv @iconcolor-separators)
+  set_icons $(tmux show -gqv @iconcolor-icons)
   
   set_status_left
   set_status_center
