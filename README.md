@@ -55,29 +55,6 @@ set -g @plugin 'jpark6/tmux-iconcolor-status'
   tmux source-file ~/.tmux.conf
   ```
 
-## Usage
-- change `~/.tmux.conf`  and reload plugin
-1. set options in `~/.tmux.conf` 
-  - You can change it to any colors, icons or separators.
-  - colors : "status_bg,color1,color2,color3"
-    - status_bg : default: transparent, dark/black : theme dark color, light/white : theme light color, #[A-Fa-f0-9]{6} : rgb hex color
-    - color1 : main color, color2 : sub color, color3 : third color
-  - separators "section_left,section_right,separator_left,separator_right"
-  - icons "session,user,pane,current window,last windows, zoomed window,time,date,cpu,memory,charged,discharged,charging"
-```shell
-# example color, icons, separators, user name, mem, cpu
-set -g @iconcolor-colors "#FD8A8A,#F1F7B5,#A8D1D1,default" # PastelPink - pink yellow blue
-set -g @iconcolor-separators " , ,┃,┃," # pixel
-set -g @iconcolor-icons " , ,󰙄 ,󰣉 ,󰆤 , ,󱎫 ,󰸘 , , , ,󰁾 ,󰢝 ,"  # target
-set -g @iconcolor-show-user-name on
-set -g @iconcolor-show-cpu-mem off
-set -g @iconcolor-show-battery on
-```
-- example options screenshot
-- light terminal theme
-![./images/example-light.png](./images/example-light.png)
-- dark terminal theme
-![./images/example-dark.png](./images/example-dark.png)
 
 2. reload `iconcolor.tmux` plugin
   - Reload tmux
@@ -88,6 +65,8 @@ set -g @iconcolor-show-battery on
   ```
 
 ## Colors & Separators & Icons
+  - Theme: For simple applying of colors, separators, and icons, use `@iconcolor-theme`
+  - Preset: For detailed applying of colors, separators, and icons, use `@iconcolor-colors`, `@icon-separartors`, and `@iconcolor-icons`
 ### Default
 - if not set options in `~/.tmux.conf`
 - applied default options 
@@ -101,26 +80,70 @@ set -g @iconcolor-show-battery on
 ![./images/default-light.png](./images/default-light.png)
 ![./images/default-dark.png](./images/default-dark.png)
 
-### Rounded Separators & Cyberpunk & round icons
-```shell
-set -g @iconcolor-separators ",, , ," # round
-set -g @iconcolor-colors "#541690,#FF4949,#FFCD38,default" # Cyberpunk - purple pink orange
-set -g @iconcolor-icons "󰥱 ,󰙄 ,󰪟 ,󰀨 , , ,󱑁 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # important
-```
-![./images/round-cyberpunk-light.png](./images/round-cyberpunk-light.png)
-![./images/round-cyberpunk-dark.png](./images/round-cyberpunk-dark.png)
+### Theme
+- set `@iconcolor-theme` 
+- parameter: "colors theme, separators theme, icons theme"
+- theme list
+  - colors theme:
+    forest,olivegray,cyberpunk,ocean,neon-yellow,neon-purple,whitegreen,coffee,mint,flame,nord,tokyonight,gradient-green,gradient-purple,gradient-blue,gradient-orange,pastel-brown,pastel-purple,pastel-cyan,pastel-cyan2,pastel-peach,cold,
+  - separators theme:
+    round,slant-left,slant-down,slant-up,triangle-both,triangle-left,triangle-right,triangle-inverse,wave,flame,pixel,
+  - icons theme:
+    none,target-emoji,construction-emoji,night-emoji,music-emoji,sport-emoji,winter-emoji,target,ship,play,study,sport,curvedarrow,music,biohazard,star,steeringwheel,steeringwheel,sun,playround,target,play,important,surf,wave,hello,target,winter,
 
-### Triangle Separators & Nord Color & emoji icons 
+#### Pastel & Pixcel
 ```shell
-set -g @iconcolor-colors "#88C0D0,#2E3440,#FFFFFF,default" # Nord - skyblue darkgray white
-set -g @iconcolor-separators ",, , ," # triangle right > >
-set -g @iconcolor-icons "🖥 ,🤖 ,🪟 ,🎯,✨,🔍,⏳️,📅, , ,⚡️,🪫,🔋," # target emoji
+set -g @iconcolor-theme "pastel,pixel,target-emoji"
+```
+![./images/pastel-pixel-light.png](./images/pastel-pixel-light.png)
+![./images/pastel-pixel-dark.png](./images/pastel-pixel-dark.png)
+
+#### Green Gradient & Slant
+```shell
+set -g @iconcolor-theme "gradient-green,slant-right,play"
+```  
+![./images/green-slant-light.png](./images/green-slant-light.png)
+![./images/green-slant-dark.png](./images/green-slant-dark.png)
+
+#### Red & Flame
+```shell
+set -g @iconcolor-theme "flame,flame,hello"
+```
+![./images/flame-red-light.png](./images/flame-red-light.png)
+![./images/flame-red-dark.png](./images/flame-red-dark.png)
+
+#### Node & Triangle right
+```shell
+set -g @iconcolor-theme "nord,triangle-right,star"
+
 ```
 ![./images/triangle-nord-light.png](./images/triangle-nord-light.png)
 ![./images/triangle-nord-dark.png](./images/triangle-nord-dark.png)
 
 
-### Wave Separators & Cold & beach icons
+
+### Preset 
+- set `@iconcolor-colors` 
+- parameter: "color1, color2, color3, bg"
+- set `@iconcolor-separators` 
+- parameter: "section left, section right, separator left, separator right"
+- set `@iconcolor-icons` 
+- parameter: "session,user,pane,current window,last window,zoomed window,time,date,charged,uncharging,charging"
+- Presets in `preset.sh`
+- You can apply those settings to the `~.tmux.conf` file. 
+- Or you can apply any other settings.
+
+#### Cyberpunk & Rounded 
+```shell
+set -g @iconcolor-colors "#541690,#FF4949,#FFCD38,default" # Cyberpunk - purple pink orange
+set -g @iconcolor-separators ",, , ," # round
+set -g @iconcolor-icons "󰥱 ,󰙄 ,󰪟 ,󰀨 , , ,󱑁 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # important
+```
+![./images/round-cyberpunk-light.png](./images/round-cyberpunk-light.png)
+![./images/round-cyberpunk-dark.png](./images/round-cyberpunk-dark.png)
+
+
+### Cold & Wave
 ```shell
 set -g @iconcolor-colors "#005DFA,#8CB2F1,#D0CEDD,default" # Cold - blue skyblue white
 set -g @iconcolor-separators " ,,┃,┃," # wave
@@ -129,48 +152,40 @@ set -g @iconcolor-icons " ,󱎂 ,󰠡 ,󱝆 ,󱁕, ,󰄉 ,󰸗 , , ,
 ![./images/wave-cold-light.png](./images/wave-cold-light.png)
 ![./images/wave-cold-dark.png](./images/wave-cold-dark.png)
 
-### Flame Separators & Red
+### Only FG Olive & No Separators No Icons
+- Only set color1, the background will be transparent and the text will be color1.
+- Set separators and icons to "," because if set them to "", the shell script will say they have no value.
 ```shell
-set -g @iconcolor-colors "#A62C2C,#E83F25,#EA7300,#FFFFFF" # Flame - red orange yellow 
-set -g @iconcolor-separators " ,, , ," # flame
-set -g @iconcolor-icons "󱠇 ,󰙊 , ,󱓞 , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # hello
-
-```
-![./images/flame-red-light.png](./images/flame-red-light.png)
-![./images/flame-red-dark.png](./images/flame-red-dark.png)
-
-### No Separator No Icon & Olive 
-```shell
-set -g @iconcolor-colors "default,#627F47,#A4B465,#F5ECD5"
-set -g @iconcolor-separators ", "
-set -g @iconcolor-icons ", "
+set -g @iconcolor-colors "#627F47"
+set -g @iconcolor-separators ","
+set -g @iconcolor-icons ","
 ```
 
 ![./images/noseparator-noicon-grayolive-light.png](./images/noseparator-noicon-grayolive-light.png)
 ![./images/noseparator-noicon-grayolive-dark.png](./images/noseparator-noicon-grayolive-dark.png)
 
-
-## User Name
+## Toggle Status
+### User Name
 - username is always the same value,
 - so it doesn't matter if it's not displayed,
 - set on/off to show or hide username
 - default : on
-### No User Name
+#### No User Name
 ```shell
 set -g @iconcolor-show-user-name "off" # off or "off"
 ```
 ![./images/no-user-name-light.png](./images/no-user-name-light.png)
 ![./images/no-user-name-dark.png](./images/no-user-name-dark.png)
 
-### Show User Name
+#### Show User Name
 ```shell
 set -g @iconcolor-show-user-name "on" # on of "on"
 ```
 ![./images/user-name-light.png](./images/user-name-light.png)
 ![./images/user-name-dark.png](./images/user-name-dark.png)
 
-## CPU & Memory
-### No CPU & Memory Info
+### CPU & Memory
+#### No CPU & Memory Info
 - If you don't want to see cpu mem info
 - or not install [thewtex/tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load) plugin
 - default : off
@@ -180,15 +195,15 @@ set -g @iconcolor-show-cpu-mem "off" # off or "off"
 ![./images/no-cpu-mem-light.png](./images/no-cpu-mem-light.png)
 ![./images/no-cpu-mem-dark.png](./images/no-cpu-mem-dark.png)
 
-### Show CPU & Memory Info
+#### Show CPU & Memory Info
 ```shell
 set -g @iconcolor-show-cpu-mem "on" # on or "on"
 ```
 ![./images/cpu-mem-light.png](./images/cpu-mem-light.png)
 ![./images/cpu-mem-dark.png](./images/cpu-mem-dark.png)
 
-## battery
-### No battery Info
+### battery
+#### No battery Info
 - If you don't want to see battery info
 - or not install [tmux-plugins/tmux-battery](https://github.com/tmux-plugins/tmux-battery) plugin
 - default : off
@@ -198,15 +213,11 @@ set -g @iconcolor-show-battery "off" # off or "off"
 ![./images/no-battery-mem-light.png](./images/no-battery-light.png)
 ![./images/no-battery-mem-dark.png](./images/no-battery-dark.png)
 
-### Show Battery Info
+#### Show Battery Info
 ```shell
 set -g @iconcolor-show-battery "on" # on or "on"
 ```
 ![./images/battery-light.png](./images/battery-light.png)
 ![./images/battery-dark.png](./images/battery-dark.png)
 
-##  Presets
-- Presets in `preset.sh`
-- You can apply those settings to the `~.tmux.conf` file. 
-- Or you can apply any other settings.
 
