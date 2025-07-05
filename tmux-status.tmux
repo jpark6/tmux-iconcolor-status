@@ -88,7 +88,7 @@ set_status_right() {
 
   if [ -n "$show_cpu_mem" ] && [ "$show_cpu_mem" = "on" ] &&
      [ -n "$show_battery" ] && [ "$show_battery" = "on" ]; then 
-    tmux set -g status-right "$status_right#[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1]$([ -z "$section_l_icon"] && echo " ")$cpu_icon${cpu_mem_array[1]}%$([ -z "$sp_l_icon"] && echo " ")$sp_l_icon$mem_icon${cpu_mem_array[0]}%$([ -z "$sp_l_icon"] && echo " ")$sp_l_icon#{battery_icon_status}#{battery_percentage}% "
+    tmux set -g status-right "$status_right#[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1]$([ -z "$section_l_icon"] && echo " ")$cpu_icon${cpu_mem_array[1]}%$([ -z "$sp_l_icon"] && echo " ")$sp_l_icon$mem_icon${cpu_mem_array[0]}%$([ -z "$sp_l_icon"] && echo " ")$sp_l_icon#{battery_icon_status}#{battery_percentage} "
   elif [ -n "$show_cpu_mem" ] && [ "$show_cpu_mem" = "on" ]; then 
     tmux set -g status-right "$status_right#[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1]$([ -z "$section_l_icon"] && echo " ")$cpu_icon${cpu_mem_array[1]}%$([ -z "$sp_l_icon"] && echo " ")$sp_l_icon$mem_icon${cpu_mem_array[0]}% "
   elif [ -n "$show_battery" ] && [ "$show_battery" = "on" ]; then 
