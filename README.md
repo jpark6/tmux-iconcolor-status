@@ -119,8 +119,6 @@ set -g @iconcolor-icons "🖥 ,🤖 ,🪟 ,🎯,✨,🔍,⏳️,📅, , ,�
 ![./images/triangle-nord-light.png](./images/triangle-nord-light.png)
 ![./images/triangle-nord-dark.png](./images/triangle-nord-dark.png)
 
-![./images/pixel-pastel-light.png](./images/pixel-pastel-light.png)
-![./images/pixel-pastel-dark.png](./images/pixel-pastel-dark.png)
 
 ### Wave Separators & Cold & beach icons
 ```shell
@@ -133,9 +131,9 @@ set -g @iconcolor-icons " ,󱎂 ,󰠡 ,󱝆 ,󱁕, ,󰄉 ,󰸗 , , ,
 
 ### Flame Separators & Red
 ```shell
-set -g @iconcolor-colors "default,#A62C2C,#E83F25,#EA7300"
-set -g @iconcolor-separators " ,, , ,"
-set -g @iconcolor-icons "󱠇 ,󰙊 , ,󱓞 , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # hello
+set -g @iconcolor-colors "#A62C2C,#E83F25,#EA7300,#FFFFFF" # Flame - red orange yellow 
+set -g @iconcolor-separators " ,, , ," # flame
+set -g @iconcolor-icons "󱠇 ,󰙊 , ,󱓞 , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # hello
 
 ```
 ![./images/flame-red-light.png](./images/flame-red-light.png)
@@ -153,9 +151,9 @@ set -g @iconcolor-icons ", "
 
 
 ## User Name
-- I think the username is always the same value,
+- username is always the same value,
 - so it doesn't matter if it's not displayed,
-- so I made it an on/off option.
+- set on/off to show or hide username
 - default : on
 ### No User Name
 ```shell
