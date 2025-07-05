@@ -96,12 +96,6 @@ set_status_right() {
   tmux set -g status-interval 1
 }
 
-set_lualine_separators() {
-  INIT_LUA_FILE="/Users/jakepark/Repos/dotfiles/nvim/init.lua"
-  sed -i '' "s/\(section_separators = { left = \"\).\{0,3\}\(\", right = \"\).\{0,3\}\(\"\)/\1$(echo $section_r_icon|sed "s| ||g")\2$section_l_icon\3/" $INIT_LUA_FILE
-  sed -i '' "s/\(component_separators = { left = \"\).\{0,3\}\(\", right = \"\).\{0,3\}\(\"\)/\1$(echo $sp_r_icon|sed "s| ||g")\2$sp_l_icon\3/" $INIT_LUA_FILE
-}
-
 
 main() {
   # options in ./preset.sh have higher priority than options in ~/.tmux.conf
@@ -114,7 +108,6 @@ main() {
   set_status_left
   set_status_center
   set_status_right $(tmux show -gqv @tmux-status-show-cpu-mem) $(tmux show -gqv @tmux-status-show-battery)
-  set_lualine_separators
 
   tmux set -g pane-active-border-style "fg=$c1"
 }
