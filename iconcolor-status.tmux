@@ -39,7 +39,7 @@ set_icons() {
   user_icon=${icons_array[1]}
   pane_icon=${icons_array[2]}
   curr_icon=${icons_array[3]}
-  prev_icon=${icons_array[4]}
+  last_icon=${icons_array[4]}
   zoom_icon=${icons_array[5]}
   time_icon=${icons_array[6]}
   date_icon=${icons_array[7]}
@@ -65,7 +65,7 @@ set_status_center() {
   tmux set -g status-style "fg=$c1,bg=$bg_c"
 
   tmux set -g status-justify centre # centre left right
-  tmux set -g window-status-format "#[fg=$c1,bg=$bg_c] #{?window_zoomed_flag,$zoom_icon,#{?window_last_plag,$prev_icon,}}#I.#W"
+  tmux set -g window-status-format "#[fg=$c1,bg=$bg_c] #{?window_zoomed_flag,$zoom_icon,}#{?window_last_flag,$last_icon,}#I.#W"
   tmux set -g window-status-current-format "#[fg=$c1,bg=$bg_c]$section_l_icon#[fg=$c2,bg=$c1,bold]$([ -z "$section_r_icon"] && echo " ")#{?window_zoomed_flag,$zoom_icon,$curr_icon}#[bold,italics]#I${sp_r_icon:-"."}#W$([ -z "$section_r_icon"] && echo " ")#[default]#[fg=$c1,bg=$bg_c]$section_r_icon"
   tmux set -g window-status-separator " "
 }
@@ -104,6 +104,7 @@ set_status_right() {
 main() {
   # options in ./preset.sh have higher priority than options in ~/.tmux.conf
   # bash ./preset.sh 
+  tmux run-shell $HOME/.tmux/plugins/tmux-battery/battery.tmux
 
   set_colors $(tmux show -gqv @iconcolor-colors)
   set_separators $(tmux show -gqv @iconcolor-separators)
