@@ -90,9 +90,10 @@ set_status_left() {
   local show_session=$(tmux show -gqv @iconcolor-show-session)
   local show_user=$(tmux show -gqv @iconcolor-show-user)
   local show_pane=$(tmux show -gqv @iconcolor-show-pane)
+  local user_format=$(tmux show -gqv @iconcolor-user-format)
 
   local session_icon_text="$session_icon#S"
-  local user_icon_text="$user_icon#(whoami)"
+  local user_icon_text="$user_icon${user_format:-"#(whoami)"}"
   local pane_icon_text="$pane_icon#{window_index}:#{pane_index}"
 
   local icon_text_array=()
@@ -122,18 +123,22 @@ set_status_center() {
 }
 
 set_status_right() {
+  # get global options for status right
   local show_time=$(tmux show -gqv @iconcolor-show-time)
   local show_date=$(tmux show -gqv @iconcolor-show-date)
   local show_cpu_mem=$(tmux show -gqv @iconcolor-show-cpu-mem)
   local show_battery=$(tmux show -gqv @iconcolor-show-battery)
+  local time_format=$(tmux show -gqv @iconcolor-time-format)
+  local date_format=$(tmux show -gqv @iconcolor-date-format)
 
+  # set global option for tmux-battery plugins
   tmux set -g @batt_icon_status_charged "$batt_charged_icon"
   tmux set -g @batt_icon_status_charging "$batt_charging_icon"
   tmux set -g @batt_icon_status_discharging "$batt_discharged_icon"
   tmux set -g @batt_icon_status_attached "$batt_charging_icon"
 
-  local time_icon_text="$time_icon%H:%M:%S"
-  local date_icon_text="$date_icon%y/%m/%d"
+  local time_icon_text="$time_icon${time_format:-"%X"}" # default - %X : HH24:MM:SS
+  local date_icon_text="$date_icon${date_format:-"%y/%m/%d"}" # default - %y/%m/%d YY/MM/DD
   local cpu_mem_icon_text="$cpu_icon#{cpu_percentage}$([ -z "$sp_l_icon" ] && echo " ")$sp_l_icon$mem_icon#{ram_percentage}"
   # local cpu_mem_icon_text="$cpu_icon"
   local battery_icon_text="#{battery_icon_status}#{battery_percentage}"
