@@ -1,8 +1,11 @@
 colors:
-forest,olivegray,cyberpunk,ocean,neon-yellow,neon-purple,whitegreen,coffee,mint,flame,nord,tokyonight,gradient-green,gradient-purple,gradient-blue,gradient-orange,pastel-brown,pastel-purple,pastel-cyan,pastel-cyan2,pastel-peach,cold,
+coffee, cold, cyberpunk, flame, forest, gradient-blue, gradient-green, gradient-orange, gradient-purple, mint, neon-purple, neon-yellow, nord, ocean, olivegray, pastel, pastel-brown, pastel-cyan, pastel-cyan2, pastel-peach, pastel-pink, pastel-purple, tokyonight, whitegreen
+
 
 separators:
-round,slant-left,slant-down,slant-up,triangle-both,triangle-left,triangle-right,triangle-inverse,wave,flame,pixel,
+flame, pixel, round, slant, slant-down, slant-left, slant-right, slant-up, triangle-inverse, triangle-left, triangle-right, triangle-both, wave
+
 
 icons:
-none,target-emoji,construction-emoji,night-emoji,music-emoji,sport-emoji,winter-emoji,target,ship,play,study,sport,curvedarrow,music,biohazard,star,steeringwheel,steeringwheel,sun,playround,target,play,important,surf,wave,hello,target,winter,
+construction-emoji, music-emoji, night-emoji, sport-emoji, target-emoji, winter-emoji, airplane, biohazard, curvedarrow, hello, important, music, none, play, play, playround, ship, sport, star, steeringwheel, study, sun, surf, target, target, wave, winter
+

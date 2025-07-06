@@ -113,62 +113,53 @@ set_theme() {
   local icons=""
 
   case $color in
-    forest)
-      colors="#16610E,#F97A00,#FED16A,default"
+    coffee)
+      colors="#96624C,#CC8A6A,#FABB85,default"
       ;;
-    olivegray)
-      colors="#626F47,#A4B465,#F5ECD5,default"
+    cold)
+      colors="#005DFA,#8CB2F1,#D0CEDD,default"
       ;;
     cyberpunk)
       colors="#541690,#FF4949,#FFCD38,default"
       ;;
-    ocean)
-      colors="#050C9C,#3572EF,#3ABEF9,default"
-      ;;
-    neon-yellow)
-      colors="#FCC737,#F27B0F,#7E1891,default"
-      ;;
-    neon-purple)
-      colors="#952F7C,#45CC38,#CAAC00,default"
-      ;;
-    whitegreen)
-      colors="#EFE4D2,#254D70,#2F80BF,default"
-      ;;
-    coffee)
-      colors="#96624C,#CC8A6A,#FABB85,default"
-      ;;
-    mint)
-      colors="#139E74,#BAFFE5,#E2FFF4,default"
-      ;;
     flame)
       colors="#A62C2C,#E83F25,#EA7300,default"
       ;;
-    nord)
-      colors="#88C0D0,#2E3440,#FFFFFF,default"
-      ;;
-    tokyonight)
-      colors="#0A0047,#00FFD2,#FF4499,default"
-      ;;
-    gradient-green)
-      colors="#1A5319,#80AF81,#D6EFD8,default"
-      ;;
-    gradient-purple)
-      colors="#AA60C8,#D69ADE,#FFDFEF,default"
+    forest)
+      colors="#16610E,#F97A00,#FED16A,default"
       ;;
     gradient-blue)
       colors="#3D90D7,#7AC6D2,#B5FCCD,default"
       ;;
+    gradient-green)
+      colors="#1A5319,#80AF81,#D6EFD8,default"
+      ;;
     gradient-orange)
       colors="#FA812F,#F3C623,#FEF3E2,default"
       ;;
-    pastel|pastel-pink)
-      colors="#FD8A8A,#F1F7B5,#A8D1D1,default"
+    gradient-purple)
+      colors="#AA60C8,#D69ADE,#FFDFEF,default"
+      ;;
+    mint)
+      colors="#139E74,#BAFFE5,#E2FFF4,default"
+      ;;
+    neon-purple)
+      colors="#952F7C,#45CC38,#CAAC00,default"
+      ;;
+    neon-yellow)
+      colors="#FCC737,#F27B0F,#7E1891,default"
+      ;;
+    nord)
+      colors="#88C0D0,#2E3440,#FFFFFF,default"
+      ;;
+    ocean)
+      colors="#050C9C,#3572EF,#3ABEF9,default"
+      ;;
+    olivegray)
+      colors="#626F47,#A4B465,#F5ECD5,default"
       ;;
     pastel-brown)
       colors="#4B352A,#CA7842,#B2CD9C,default"
-      ;;
-    pastel-purple)
-      colors="#B1AFFF,#FDFDBD,#C8FFD4,default"
       ;;
     pastel-cyan)
       colors="#00809D,#FCECDD,#FF7601,default"
@@ -179,8 +170,17 @@ set_theme() {
     pastel-peach)
       colors="#FF4F33,#FFE6E1,#075B5E,default"
       ;;
-    cold)
-      colors="#005DFA,#8CB2F1,#D0CEDD,default"
+    pastel-purple)
+      colors="#B1AFFF,#FDFDBD,#C8FFD4,default"
+      ;;
+    pastel|pastel-pink)
+      colors="#FD8A8A,#F1F7B5,#A8D1D1,default"
+      ;;
+    tokyonight)
+      colors="#0A0047,#00FFD2,#FF4499,default"
+      ;;
+    whitegreen)
+      colors="#EFE4D2,#254D70,#2F80BF,default"
       ;;
     *)
       colors=""
@@ -190,43 +190,43 @@ set_theme() {
 
   case $separator in
     round)
-      separators=",, , ,"
-      ;;
-    slant|slant-right)
-      separators=",,,,"
-      ;;
-    slant-left)
-      separators=",,,,"
-      ;;
-    slant-down)
-      separators=",,,,"
-      ;;
-    slant-up)
-      separators=",,,,"
-      ;;
-    triangle-both)
-      separators=",,,,"
-      ;;
-    triangle-left)
-      separators="█,█, , ,"
-      ;;
-    triangle-right)
-      separators="█,█ , , ,"
-      ;;
-    triangle-inverse)
-      separators="█,█, , ,"
-      ;;
-    wave)
-      separators=" ,,┃,┃,"
+      separators=" , , , ,"
       ;;
     flame)
-      separators=" ,, , ,"
+      separators=" , , , ,"
+      ;;
+    none)
+      separators=",,┃,┃," # "█"
       ;;
     pixel)
       separators=" , ,┃,┃,"
       ;;
-    none)
-      separators=""
+    slant-down)
+      separators=",,,,"
+      ;;
+    slant-left)
+      separators=",,,,"
+      ;;
+    slant-up)
+      separators=",,,,"
+      ;;
+    slant|slant-right)
+      separators=",,,,"
+      ;;
+    triangle-inverse)
+      separators=",,,,"
+      ;;
+    triangle-left)
+      separators=",, , ,"
+      ;;
+    triangle-right)
+      separators=",,,,"
+      ;;
+    triangle|triangle-both)
+      separators=",,,,"
+      ;;
+    wave)
+      separators=" ,,┃,┃,"
       ;;
     *)
       separators=""
@@ -235,47 +235,53 @@ set_theme() {
   set_separators "$separators"
 
   case $icon in
-    target-emoji)
-      icons="🖥 ,🤖 ,🪟 ,🎯,✨,🔍,⏳️,📅, , ,⚡️,🪫,🔋,"
-      ;;
     construction-emoji)
       icons="🧱,👷,🪟 ,🏗 ,🚧,🔍,⏳️,📅, , , ,󱊢 ,󱊥 ,"
-      ;;
-    night-emoji)
-      icons="🌃,😪,🪟 ,🌙,💤,🔍,⏳️,📅,i, , ,󰁾 ,󰢝 ,"
       ;;
     music-emoji)
       icons="🎹,🕺,🥁,🎸,🎶,🔍,🕰 ,📆,󰯲 ,󰰐 ,󰚥 , ,󰂄 ,"
       ;;
+    night-emoji)
+      icons="🌃,😪,🪟 ,🌙,💤,🔍,⏳️,📅,i, , ,󰁾 ,󰢝 ,"
+      ;;
     sport-emoji)
       icons="🏟 ,🏊,🏓,⚽ ,🥅,🔍,⏳️,📆,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
+      ;;
+    target-emoji)
+      icons="🖥 ,🤖 ,🪟 ,🎯,✨,🔍,⏳️,📅, , ,⚡️,🪫,🔋,"
       ;;
     winter-emoji)
       icons="🏔 ,⛄,🚠 ,🏂 ,🍧,🔍,⌚️,🎄,󰯲 ,󰰐 ,󱐥 ,󰁾 ,󰢝 ,"
       ;;
-    target)
-      icons=" , ,󰙄 ,󰣉 ,󰆤, ,󱎫 ,󰸘 , , , ,󰁾 ,󰢝 ,"
-      ;;
-    ship)
-      icons="󰒋 ,󱟄, , ,󰄬 , ,󱦟 ,󰸗 , , , ,󱊢 ,󱊥 ,"
-      ;;
     airplane)
       icons="󰒋 ,󱟄, , , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
-    study)
-      icons="󰹕 ,󰶪 ,󰃥 , 󰙏 ,󰸕 , ,󱫍 , , ,i, ,󰁾 ,󰢝 ,"
-      ;;
-    sport)
-      icons="󰠴 ,󰑮 ,󱉾  ,  ,󰦶 , ,󰔛 , , , ,󰚥 , ,󰂄 ,"
+    biohazard)
+      icons="󰒋 ,󰙌, , , , , ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
     curvedarrow)
       icons=" , , , , , , ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
+    hello)
+      icons="󱠇 ,󰙊 , ,󱓞 , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ,"
+      ;;
+    important)
+      icons="󰥱 ,󰙄 ,󰪟 ,󰀨 , , ,󱑁 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
+      ;;
     music)
       icons=" , , ,󰎇 ,󰽺 , , ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
-    biohazard)
-      icons="󰒋 ,󰙌, , , , , ,󰸗 , , , ,󰁾 ,󰢝 ,"
+    play)
+      icons=" , , , , , , ,󰸗 , , , ,󰁾 ,󰢝 ,"
+      ;;
+    playround)
+      icons="  ,󰙄 ,󱪳 , , , ,󱎫 ,󰸘 ,󰯲 ,󰰐 ,󰚥 , ,󰂄 ,"
+      ;;
+    ship)
+      icons="󰒋 ,󱟄, , ,󰄬 , ,󱦟 ,󰸗 , , , ,󱊢 ,󱊥 ,"
+      ;;
+    sport)
+      icons="󰠴 ,󰑮 ,󱉾  ,  ,󰦶 , ,󰔛 , , , ,󰚥 , ,󰂄 ,"
       ;;
     star)
       icons=" , , ,󱝂 , , , ,󰸗 , , , ,󰁾 ,󰢝 ,"
@@ -283,32 +289,23 @@ set_theme() {
     steeringwheel)
       icons="󰒋 , ,󱪳 ,󰠳 , , ,󱎫 ,󰸘 ,C:,M:, ,󰁾 ,󰢝 ,"
       ;;
+    study)
+      icons="󰹕 ,󰶪 ,󰃥 , 󰙏 ,󰸕 , ,󱫍 , , ,i, ,󰁾 ,󰢝 ,"
+      ;;
     sun)
       icons=" ,󱗌 ,󰕮 ,󰖙 , , ,󱎫 ,󰸘 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
-      ;;
-    playround)
-      icons="  ,󰙄 ,󱪳 , , , ,󱎫 ,󰸘 ,󰯲 ,󰰐 ,󰚥 , ,󰂄 ,"
-      ;;
-    target)
-      icons=" ,󱚟 ,󰠡 ,󰣉 , , ,󱦟 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
-      ;;
-    play)
-      icons=" , , , , , , ,󰸗 , , , ,󰁾 ,󰢝 ,"
-      ;;
-    important)
-      icons="󰥱 ,󰙄 ,󰪟 ,󰀨 , , ,󱑁 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
       ;;
     surf)
       icons=" ,󱎂 ,󰠡 ,󱝆 ,󱁕, ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
-    wave)
-      icons="󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 , ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ,"
-      ;;
-    hello)
-      icons="󱠇 ,󰙊 , ,󱓞 , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ,"
+    target)
+      icons=" ,󱚟 ,󰠡 ,󰣉 , , ,󱦟 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
       ;;
     target)
       icons="󰕲 ,󰙄 , ,󰣉 , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ,"
+      ;;
+    wave)
+      icons="󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 , ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
     winter)
       icons=" , ,󰶛 , , , ,󰔛 , ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
