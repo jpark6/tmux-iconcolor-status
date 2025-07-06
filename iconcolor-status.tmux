@@ -137,7 +137,7 @@ set_status_right() {
   tmux set -g @batt_icon_status_discharging "$batt_discharged_icon"
   tmux set -g @batt_icon_status_attached "$batt_charging_icon"
 
-  local time_icon_text="$time_icon${time_format:-"%X"}" # default - %X : HH24:MM:SS
+  local time_icon_text="$time_icon${time_format:-"%H:%M:%S"}" # default - %X : HH24:MM:SS
   local date_icon_text="$date_icon${date_format:-"%y/%m/%d"}" # default - %y/%m/%d YY/MM/DD
   local cpu_mem_icon_text="$cpu_icon#{cpu_percentage}$([ -z "$sp_l_icon" ] && echo " ")$sp_l_icon$mem_icon#{ram_percentage}"
   # local cpu_mem_icon_text="$cpu_icon"

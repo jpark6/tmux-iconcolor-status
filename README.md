@@ -226,6 +226,7 @@ set -g @iconcolor-show-battery on # on / off
 
 ## User / Date / Time Format
 ### User
+- default  : `"$(whoami)"`
 - set in `~/.tmux.conf`
 ```
 set -g @iconcolor-user-format "#(whoami)"
@@ -244,9 +245,11 @@ set -g @iconcolor-user-format "#(whoami)"
 |`"#(whoami)@#H"`|![./images/user-format-username-hostname.png](./images/user-format-username-hostname.png) |
 
 ### Time / Date Format
+- time format default : `"%y/%m/%d"`
+- date format default : `"%H:%M:%S"`
 - set in `~/.tmux.conf`
 ```
-set -g @iconcolor-time-format "%X" # HH24:MM:SS
+set -g @iconcolor-time-format "%H:%M:%S" # HH24:MM:SS
 set -g @iconcolor-date-format "%y/%m/%d" # YY/MM/DD
 ```
 |Format Code|Meaning|Example Output|
