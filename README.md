@@ -19,7 +19,7 @@
 ![./images/user-nerd-font.png](./images/use-nerd-font.png)
 
 ### plugins
-[thewtex/tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load)
+[tmux-plugins/tmux-cpu](https://github.com/tmux-plugins/tmux-cpu)
 - show cpu mem percentage
 
 [tmux-plugins/tmux-battery](https://github.com/tmux-plugins/tmux-battery)
@@ -210,7 +210,7 @@ set -g @iconcolor-show-user-name "on" # on of "on"
 ### CPU & Memory
 #### No CPU & Memory Info
 - If you don't want to see cpu mem info
-- or not install [thewtex/tmux-mem-cpu-load](https://github.com/thewtex/tmux-mem-cpu-load) plugin
+- or not install [tmux-plugins/tmux-cpu](https://github.com/tmux-plugins/tmux-cpu) plugin
 - default : off
 ```shell
 set -g @iconcolor-show-cpu-mem "off" # off or "off"
