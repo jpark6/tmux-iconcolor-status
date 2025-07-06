@@ -98,7 +98,7 @@ set -g @plugin 'jpark6/tmux-iconcolor-status'
   - Theme: For simple applying of colors, separators, and icons, use `@iconcolor-theme`
   - Preset: For detailed applying of colors, separators, and icons, use `@iconcolor-colors`, `@icon-separartors`, and `@iconcolor-icons`
   - If set both theme option and preset options, the theme option is applied and then overwritten by the preset options
-  - It doesn't matter which option was declared first.
+  - Can also set it to `@iconcolor-theme` first, and then modify it further with `@iconcolor-colors`, `@iconcolor-separators`, and `@iconcolor-icons`.
 
 ### Default
 - if not set options in `~/.tmux.conf`
