@@ -5,7 +5,7 @@ set_theme() {
   IFS=',' read -ra theme_array <<< "$theme_string"
 
   local color="$(echo ${theme_array[0]:-"default"} | tr '[:upper:]' '[:lower:]')"
-  local separator="$(echo ${theme_array[1]:-"none"} | tr '[:upper:]' '[:lower:]')"
+  local separator="$(echo ${theme_array[1]:-""} | tr '[:upper:]' '[:lower:]')"
   local icon="$(echo ${theme_array[2]:-"default"} | tr '[:upper:]' '[:lower:]')"
 
   colors=""
@@ -86,48 +86,44 @@ set_theme() {
       colors=""
       ;;
   esac
-  echo "colors::::$colors"
   set_colors "$colors"
 
   case $separator in
-    round)
-      separators=" , , , ,"
-      ;;
     flame)
       separators=" , , , ,"
-      ;;
-    none)
-      separators=",,┃,┃," # "█"
       ;;
     pixel)
       separators=" , ,┃,┃,"
       ;;
+    round)
+      separators=",,,,"
+      ;;
     slant-down)
-      separators=",,,,"
+      separators=",,,"
       ;;
     slant-left)
-      separators=",,,,"
+      separators=",,,"
       ;;
     slant-up)
-      separators=",,,,"
+      separators=",,,"
       ;;
     slant|slant-right)
-      separators=",,,,"
+      separators=",,,"
       ;;
     triangle-inverse)
-      separators=",,,,"
+      separators=",,,"
       ;;
     triangle-left)
-      separators=",, , ,"
+      separators=",,,"
       ;;
     triangle-right)
-      separators=",,,,"
+      separators=",,,"
       ;;
     triangle|triangle-both)
-      separators=",,,,"
+      separators=",,,"
       ;;
     wave)
-      separators=" ,,┃,┃,"
+      separators=" , ,┃,┃,"
       ;;
     *)
       separators=""
@@ -148,11 +144,14 @@ set_theme() {
     sport-emoji)
       icons="🏟 ,🏊,🏓,⚽ ,🥅,🔍,⏳️,📆,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
       ;;
+    surf-emoji)
+      icons="🏖️ ,🧜,🛳 ,🏄,🍧,🔍,⏳️,🌴,󰯲 ,󰰐 ,󱐥 ,󰁾 ,󰢝 ,"
+      ;;
     target-emoji)
       icons="🖥 ,🤖 ,🪟 ,🎯,✨,🔍,🕐,📅, , ,⚡️,🪫,🔋,"
       ;;
     winter-emoji)
-      icons="🏔 ,⛄,🚠 ,🏂 ,🍧,🔍,⌚️,🎄,󰯲 ,󰰐 ,󱐥 ,󰁾 ,󰢝 ,"
+      icons="🏔 ,⛄,🚠 ,🏂,🧤,🔍,🕘,🎄,󰯲 ,󰰐 ,🔌,🪫,🔋,"
       ;;
     airplane)
       icons="󰒋 ,󱟄, , , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ,"
@@ -188,7 +187,7 @@ set_theme() {
       icons=" , , ,󱝂 , , , ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
     steeringwheel)
-      icons="󰒋 , ,󱪳 ,󰠳 , , ,󱎫 ,󰸘 ,C:,M:, ,󰁾 ,󰢝 ,"
+      icons="󰒋 , ,󱪳 ,󰠳 , , ,󱎫 ,󰸘 ,C:,M:, ,󰁾 ,󰢝 ,"
       ;;
     study)
       icons="󰹕 ,󰶪 ,󰃥 , 󰙏 ,󰸕 , ,󱫍 , , ,i, ,󰁾 ,󰢝 ,"
@@ -197,19 +196,16 @@ set_theme() {
       icons=" ,󱗌 ,󰕮 ,󰖙 , , ,󱎫 ,󰸘 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
       ;;
     surf)
-      icons=" ,󱎂 ,󰠡 ,󱝆 ,󱁕, ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ,"
+      icons=" ,󱎂 ,󰕮 ,󱝆 ,󱁕, ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
     target)
-      icons=" ,󱚟 ,󰠡 ,󰣉 , , ,󱦟 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
-      ;;
-    target)
-      icons="󰕲 ,󰙄 , ,󰣉 , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ,"
+      icons="󰕲 ,󰙄 , ,󰣉 , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
     wave)
-      icons="󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 , ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ,"
+      icons="󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 , ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ,"
       ;;
     winter)
-      icons=" , ,󰶛 , , , ,󰔛 , ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
+      icons=" , ,󰶛 , , , ,󰔛 , ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ,"
       ;;
     *)
       icons=""

@@ -3,7 +3,6 @@
 set_colors() {
   local colors_string="$(echo ${@} | tr -d ' ')"
   IFS=',' read -ra colors_array <<< "$colors_string"
-  echo "$colors_string"
 
   c1="${colors_array[0]:-"default"}"
   c2="${colors_array[1]:-"none"}"

@@ -35,20 +35,20 @@ preset() {
   set -g @iconcolor-separators "," # no saparators
   set -g @iconcolor-separators ",,┃,┃,"
   set -g @iconcolor-separators ",,,,"
-  set -g @iconcolor-separators ",, , ," # round
+  set -g @iconcolor-separators ",,,," # round
   set -g @iconcolor-separators ",,,,"     # round 
-  set -g @iconcolor-separators ",, , ," # slant right / /
-  set -g @iconcolor-separators ",, , ," # slant left \ \
-  set -g @iconcolor-separators ",, , ," # slant down / \
-  set -g @iconcolor-separators ",, , ," # slant up \ /
-  set -g @iconcolor-separators ",, , ," # triangle both < >
-  set -g @iconcolor-separators ",, , ," # triangle left < <
-  set -g @iconcolor-separators ",, , ," # triangle right > >
-  set -g @iconcolor-separators ",, , ," # triangle inverse > <
-  set -g @iconcolor-separators ",, , ," # trapezoid like > <
-  set -g @iconcolor-separators " ,,┃,┃," # wave
-  set -g @iconcolor-separators " ,, , ," # flame
-  set -g @iconcolor-separators " , ,┃,┃," # pixel
+  set -g @iconcolor-separators ",,," # slant right / /
+  set -g @iconcolor-separators ",,," # slant left \ \
+  set -g @iconcolor-separators ",,," # slant down / \
+  set -g @iconcolor-separators ",,," # slant up \ /
+  set -g @iconcolor-separators ",,," # triangle both < >
+  set -g @iconcolor-separators ",,," # triangle left < <
+  set -g @iconcolor-separators ",,," # triangle right > >
+  set -g @iconcolor-separators ",,," # triangle inverse > <
+  set -g @iconcolor-separators ",,," # trapezoid like > <
+  set -g @iconcolor-separators " , ,┃,┃" # wave
+  set -g @iconcolor-separators " , , , " # flame
+  set -g @iconcolor-separators " , ,┃,┃" # pixel
 
   # icons : session, user, pane, current, last, zoom, time, date, cpu, mem, charged, uncharging, charing
   set -g @iconcolor-icons "," # no icons
@@ -76,9 +76,9 @@ preset() {
   set -g @iconcolor-icons "󰥱 ,󰙄 ,󰪟 ,󰀨 , , ,󱑁 ,󰸗 ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # important
   set -g @iconcolor-icons " ,󱎂 ,󰠡 ,󱝆 ,󱁕, ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ," # surf
   set -g @iconcolor-icons "󰞍 ,󱝆 ,󱢋 ,󱢴 ,󱁕 , ,󰄉 ,󰸗 , , , ,󰁾 ,󰢝 ," # wave
-  set -g @iconcolor-icons "󱠇 ,󰙊 , ,󱓞 , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # hello
+  set -g @iconcolor-icons "󱠇 ,󰙊 , ,󱓞 , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # rocket
   set -g @iconcolor-icons "󰕲 ,󰙄 , ,󰣉 , , ,󱦟 ,󰸗 , , , ,󰁾 ,󰢝 ," # target
-  set -g @iconcolor-icons " , ,󰶛 , , , ,󰔛 , ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # winter emoji
+  set -g @iconcolor-icons " , ,󰶛 , , , ,󰔛 , ,󰯲 ,󰰐 , ,󰁾 ,󰢝 ," # winter
 
   tmux set -g @iconcolor-show-user-name on
   tmux set -g @iconcolor-show-cpu-mem on
