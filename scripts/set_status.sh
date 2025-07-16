@@ -5,11 +5,11 @@ set_status_left_format() {
     status_left_format=""
     tmux set -g status-justify left
   elif [ "$#" = 1 ]; then
-    status_left_format="#[ fg=$c2,bg=$c1 ] $1 #[ fg=$c1,bg=$bg_c ]$section_r_icon"
+    status_left_format="#[fg=$c2,bg=$c1] $1 #[fg=$c1,bg=$bg_c]$section_r_icon "
   elif [ "$#" = 2 ]; then
-    status_left_format="#[ fg=$c2,bg=$c1 ] $1 #[ fg=$c1,bg=$c2 ]$section_r_icon $2#[ fg=$c2,bg=$bg_c ]$section_r_icon "
+    status_left_format="#[fg=$c2,bg=$c1] $1 #[fg=$c1,bg=$c2]$section_r_icon $2 #[fg=$c2,bg=$bg_c]$section_r_icon "
   elif [ "$#" = 3 ]; then
-    status_left_format="#[ fg=$c2,bg=$c1 ] $1 #[ fg=$c1,bg=$c2 ]$section_r_icon#[ fg=$c1,bg=$c2 ] $2 #[ fg=$c2,bg=$c3 ]$section_r_icon#[ fg=$c1,bg=$c3 ] $3 #[ fg=$c3,bg=$bg_c ]$section_r_icon "
+    status_left_format="#[fg=$c2,bg=$c1] $1 #[fg=$c1,bg=$c2]$section_r_icon#[fg=$c1,bg=$c2] $2 #[fg=$c2,bg=$c3]$section_r_icon#[fg=$c1,bg=$c3] $3 #[fg=$c3,bg=$bg_c]$section_r_icon "
   else
     status_left_format=""
     tmux set -g status-justify left
@@ -22,13 +22,13 @@ set_status_right_format() {
   if [ "$#" = 0 ]; then
     status_right_format=""
   elif [ "$#" = 1 ]; then
-    status_right_format="#[ fg=$c1,bg=$bg_c ]$section_l_icon#[ fg=$c2,bg=$c1 ] $1 "
+    status_right_format="#[fg=$c1,bg=$bg_c]$section_l_icon#[fg=$c2,bg=$c1] $1 "
   elif [ "$#" = 2 ]; then
-    status_right_format="#[ fg=$c2,bg=$bg_c,align=right ]$section_l_icon#[ fg=$c1,bg=$c2 ] $1 #[ fg=$c1,bg=$c2 ]$section_l_icon#[ fg=$c2,bg=$c1 ] $2 "
+    status_right_format="#[fg=$c2,bg=$bg_c]$section_l_icon#[fg=$c1,bg=$c2] $1 #[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1] $2 "
   elif [ "$#" = 3 ]; then
-    status_right_format="#[ fg=$c3,bg=$bg_c,align=right ]$section_l_icon#[ fg=$c1,bg=$c3 ] $1 #[ fg=$c2,bg=$c3 ]$section_l_icon#[ fg=$c1,bg=$c2 ] $2 #[ fg=$c1,bg=$c2 ]$section_l_icon#[ fg=$c2,bg=$c1 ] $3 "
+    status_right_format="#[fg=$c3,bg=$bg_c]$section_l_icon#[fg=$c1,bg=$c3] $1 #[fg=$c2,bg=$c3]$section_l_icon#[fg=$c1,bg=$c2] $2 #[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1] $3 "
   elif [ "$#" = 4 ]; then
-    status_right_format="#[ fg=$c3,bg=$bg_c,align=right ]$section_l_icon#[ fg=$c1,bg=$c3 ] $1 #[ fg=$c2,bg=$c3 ]$section_l_icon#[ fg=$c1,bg=$c2 ] $2 #[ fg=$c1,bg=$c2 ]$section_l_icon#[ fg=$c2,bg=$c1 ] $3$([ -n "$sp_l_icon" ] && echo " $sp_l_icon " || echo " ")$4 "
+    status_right_format="#[fg=$c3,bg=$bg_c]$section_l_icon#[fg=$c1,bg=$c3] $1 #[fg=$c2,bg=$c3]$section_l_icon#[fg=$c1,bg=$c2] $2 #[fg=$c1,bg=$c2]$section_l_icon#[fg=$c2,bg=$c1] $3$([ -n "$sp_l_icon" ] && echo " $sp_l_icon " || echo " ")$4 "
   else 
     status_right_format=""
   fi
@@ -67,9 +67,9 @@ set_status_left() {
 set_status_center() {
   tmux set -g status-style "fg=$c1,bg=$bg_c"
 
-  # tmux set -g window-status-format "#[ fg=$c1,bg=$bg_c ]#{?window_last_flag,$last_icon,}#{?window_zoomed_flag,$zoom_icon,}#I.#W"
-  tmux set -g window-status-format "#[ fg=$c2,bg=$bg_c ]$section_l_icon#[ fg=$c1,bg=$c2 ] #{?window_last_flag,$last_icon,}#{?window_zoomed_flag,$zoom_icon,}#I$([ -n "$sp_r_icon" ] && echo " $sp_r_icon " || echo ".")#W #[ default ]#[ fg=$c2,bg=$bg_c ]$section_r_icon"
-  tmux set -g window-status-current-format "#[ fg=$c1,bg=$bg_c ]$section_l_icon#[ fg=$c2,bg=$c1,bold ] $curr_icon#{?window_zoomed_flag,$zoom_icon,}#[ bold,italics ]#I$([ -n "$sp_r_icon" ] && echo " $sp_r_icon " || echo ".")#W #[ default ]#[ fg=$c1,bg=$bg_c ]$section_r_icon"
+  # tmux set -g window-status-format "#[fg=$c1,bg=$bg_c ]#{?window_last_flag,$last_icon,}#{?window_zoomed_flag,$zoom_icon,}#I.#W"
+  tmux set -g window-status-format "#[fg=$c2,bg=$bg_c]$section_l_icon#[fg=$c1,bg=$c2] #{?window_last_flag,$last_icon,}#{?window_zoomed_flag,$zoom_icon,}#I$([ -n "$sp_r_icon" ] && echo " $sp_r_icon " || echo ".")#W #[default]#[fg=$c2,bg=$bg_c]$section_r_icon"
+  tmux set -g window-status-current-format "#[fg=$c1,bg=$bg_c]$section_l_icon#[fg=$c2,bg=$c1,bold] $curr_icon#{?window_zoomed_flag,$zoom_icon,}#[bold,italics]#I$([ -n "$sp_r_icon" ] && echo " $sp_r_icon " || echo ".")#W #[default]#[fg=$c1,bg=$bg_c]$section_r_icon"
   # tmux set -g window-status-separator "$([ -z "$section_l_icon" ] && [ -z "$section_r_icon" ] && echo " ")"
   tmux set -g window-status-separator " "
 }
