@@ -12,7 +12,6 @@ set_status_left_format() {
     status_left_format="#[fg=$c2,bg=$c1] $1 #[fg=$c1,bg=$c2]$section_r_icon#[fg=$c1,bg=$c2] $2 #[fg=$c2,bg=$c3]$section_r_icon#[fg=$c1,bg=$c3] $3 #[fg=$c3,bg=$bg_c]$section_r_icon "
   else
     status_left_format=""
-    tmux set -g status-justify left
   fi
 
   tmux set -g status-left "$status_left_format"
@@ -72,6 +71,7 @@ set_status_center() {
   tmux set -g window-status-current-format "#[fg=$c1,bg=$bg_c]$section_l_icon#[fg=$c2,bg=$c1,bold] $curr_icon#{?window_zoomed_flag,$zoom_icon,}#[bold,italics]#I$([ -n "$sp_r_icon" ] && echo " $sp_r_icon " || echo ".")#W #[default]#[fg=$c1,bg=$bg_c]$section_r_icon"
   # tmux set -g window-status-separator "$([ -z "$section_l_icon" ] && [ -z "$section_r_icon" ] && echo " ")"
   tmux set -g window-status-separator " "
+  tmux set -g status-justify left
 }
 
 set_status_right() {
